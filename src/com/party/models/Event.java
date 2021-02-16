@@ -18,9 +18,11 @@ public class Event implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	@Column(name = "theme")
 	private String theme;
 	
@@ -31,20 +33,39 @@ public class Event implements Serializable {
 	private int nbr_personne;
 	
 	
+
 	
-	
+
 	public Event(String theme, double price, int nbr_personne) {
 		super();
+		
 		this.theme = theme;
 		this.price = price;
 		this.nbr_personne = nbr_personne;
 	}
 
+
+	public Event() {
+		super();
+	}
+	
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	public String getTheme() {
 		return theme;
 	}
 
-	public void setEvent(String theme) {
+	public void setTheme(String theme) {
 		this.theme = theme;
 	}
 

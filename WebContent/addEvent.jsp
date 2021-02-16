@@ -19,24 +19,26 @@
   <form action="AdminServlet">
     <div class="form-group">
       <label for="email">Theme:</label>
-      <input type="text" class="form-control" id="theme" placeholder="theme" name="theme" required>
+      <input type="text" class="form-control" id="theme" placeholder="theme" name="theme" >
     </div>
     <div class="form-group">
       <label >Nombre de personnes:</label>
-      <input type="text" class="form-control" placeholder="Nombre de personnes" name="nbr_personne" required>
+      <input type="text" class="form-control" placeholder="Nombre de personnes" name="nbr_personne" >
     </div>
     <div class="form-group">
       <label >Price:</label>
-      <input type="text" class="form-control" id="price" placeholder="Set a price" name="price" required>
+      <input type="text" class="form-control" id="price" placeholder="Set a price" name="price" >
     </div>
     <div class="custom-file">
     <input type="file" name="file" class="custom-file-input" id="validatedCustomFile">
     <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
     <div class="invalid-feedback">Example invalid custom file feedback</div>
   </div>
+  <br>
     <div class="form-group">
     <button type="submit" name="addEvent" class="btn btn-primary">Submit</button>
     </div>
+   
   </form>
 </div>
 
