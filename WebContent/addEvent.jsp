@@ -13,6 +13,10 @@
 
 </head>
 <body>
+<%@ include file = "layout.jsp" %>
+<%@ include file = "sidenav.jsp" %>
+
+<div class="main">
 
 <div class="container">
   <h1>ADD EVENT INFOS</h1>
@@ -35,12 +39,13 @@
     <div class="invalid-feedback">Example invalid custom file feedback</div>
   </div>
   <br>
+  <hr>
     <div class="form-group">
     <button type="submit" name="addEvent" class="btn btn-primary">Submit</button>
     </div>
    
   </form>
 </div>
-
+</div>
 </body>
 </html>

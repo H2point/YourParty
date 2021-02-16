@@ -12,6 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file = "layout.jsp" %>
+<%@ include file = "sidenav.jsp" %>
+
+<div class="main ">
  <c:forEach items="${eventList}" var="e">
 <form action="AdminServlet" method="POST">
 <input type="text" class="form-control" id="theme" value="${e.id}" name="id" hidden="true">
@@ -28,13 +32,14 @@
       <input type="text" class="form-control" id="price" value="${e.price} " name="price" >
     </div>
     
-  </div>
+ 
   <br>
     <div class="form-group">
     <button type="submit" name="modifierEvent" class="btn btn-primary">Submit</button>
     </div>
-   
+
   </form>
    </c:forEach>
+</div>
 </body>
 </html>
