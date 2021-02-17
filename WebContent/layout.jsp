@@ -37,7 +37,8 @@
 				</div>
 			</div>
 		</div>
-		<nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light" id="ftco-navbar">
+		
+	<nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	    	<a class="navbar-brand" href="index.html">Party<span>Setter</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,8 +53,37 @@
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
+	        
+	        
+	         <% if (request.getAttribute("id")!=null) {
+          int id = (Integer)request.getAttribute("id");
+          session.setAttribute("id",id);}
+          %>
+          
+          
+         <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
+          
+          
+          <%
+          if(null == session.getAttribute("id")){
+        	  
+              %>
+          <a href="login.jsp" class='btn btn-dark' style="color:white">login</a>
+          
+          <% }
+          else {
+        	  
+          %>
 	       <a href="logout.jsp" class='btn btn-dark' style="color:white">logout</a>
+           <%
+          }
+          %>
+	        
+	       
 	      </div>
+	      
+	      
+	      
 	    </div>
 	  </nav>
     <!-- END nav -->

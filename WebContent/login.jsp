@@ -113,12 +113,12 @@ body {
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input type="text" class="form-control" name="password" placeholder="Password" required="required">
+				<input type="password" class="form-control" name="password" placeholder="Password" required="required">
 			</div>
         </div>
 		    
 		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Log in</button>
+            <button  value="AfficherEvenement" name="afficherEvenement" type="submit" class="btn btn-primary btn-block btn-lg">Log in</button>
         </div>
 	
     </form>

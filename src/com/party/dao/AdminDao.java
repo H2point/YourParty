@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Query;
+
+
 import com.party.models.Event;
 import com.party.util.HibernateUtil;
 
@@ -66,6 +68,7 @@ public class AdminDao {
 		eventList = query.list();
 		return eventList;
 	}
+	
 
 
 }

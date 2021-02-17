@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import com.party.models.Evenement;
 import com.party.models.Event;
 import com.party.models.User;
 
@@ -39,8 +40,11 @@ public class HibernateUtil {
 				//settings.put(Environment.HBM2DDL_AUTO, "create-drop");
 
 				configuration.setProperties(settings);
+				
 				configuration.addAnnotatedClass(User.class);
 				configuration.addAnnotatedClass(Event.class);
+				configuration.addAnnotatedClass(Evenement.class);
+
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();

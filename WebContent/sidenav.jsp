@@ -25,10 +25,22 @@
 <div class="sidenav">
  <br><br><br><br>
 <form action="AdminServlet" method="POST">
-<button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste events</button>
+<button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
   <hr>
-   <a type="button" href="addEvent.jsp">Ajouter event</a>
  </form>
+  <a type="button" href="addOffre.jsp">Ajouter une offre</a>
+  
+  <hr>
+
+  <hr>
+  <form action="EvenementServlet" method="POST">
+<button  value="AfficherEvenement" name="afficherEvenement" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste events</button>
+  <hr>
+ </form>
+  <hr>
+
+  <hr>
+  <a type="button" href="addEvenement.jsp">Ajouter un event</a>
   
   <hr>
 

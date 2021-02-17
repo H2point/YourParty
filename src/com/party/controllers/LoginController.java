@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.party.dao.UserDao;
 
@@ -36,7 +37,15 @@ public class LoginController extends HttpServlet {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
 
-			if (loginDao.validate(username, password)) {
+			if (loginDao.validate(username, password)!=0) {
+				int id=loginDao.validate(username, password);
+				HttpSession session = request.getSession(true);
+                //session.setAttribute(id_ass, new Integer(param.intValue() + 1));
+                request.setAttribute("id",id);
+                if(username.equals("userh")) {
+                	RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
+    				dispatcher.forward(request, response);
+                }
 				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 				dispatcher.forward(request, response);
 			}else {
@@ -54,7 +63,7 @@ public class LoginController extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		if (loginDao.validate(username, password)) {
+		if (loginDao.validate(username, password)!=0) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 		}else {

@@ -2,65 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>YOUR PARTY ! MAKE IT SPECIA!</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-	<link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-		<div class="wrap">
-			<div class="container">
-				<div class="row justify-content-between">
-						<div class="col d-flex align-items-center">
-							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+00 1234 567</a> or <span class="mailus">email us:</span> <a href="#">yourparty@email.com</a></p>
-						</div>
-						<div class="col d-flex justify-content-end">
-							<div class="social-media">
-				    		<p class="mb-0 d-flex">
-				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-				    		</p>
-			        </div>
-						</div>
-				</div>
-			</div>
-		</div>
-		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">Party<span>Setter</span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="fa fa-bars"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	        	
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
-	       <a href="logout.jsp" class='btn btn-dark' style="color:white">logout</a>
-	      </div>
-	    </div>
-	  </nav>
+  <%@ include file = "layout.jsp" %>
     <!-- END nav -->
 
     <div class="hero-wrap js-fullheight" style="background-image: url('images/glass_crits.jpg'); width: fit-content;" data-stellar-background-ratio="0.2">
@@ -76,92 +18,7 @@
       </div>
     </div>
 
-    <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
-    	<div class="container">
-	    	<div class="row justify-content-end">
-	    		<div class="col-lg-4">
-						<form action="#" class="appointment-form">
-							<h3 class="mb-3">Book your apartment</h3>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-			    					<input type="text" class="form-control" placeholder="Full Name">
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="ion-md-calendar"></span></div>
-			            		<input type="text" class="form-control appointment_date-check-in" placeholder="Check-In">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="ion-md-calendar"></span></div>
-			            		<input type="text" class="form-control appointment_date-check-out" placeholder="Check-Out">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="form-field">
-	          					<div class="select-wrap">
-	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                      	<option value="">Adults</option>
-	                        <option value="">1</option>
-	                        <option value="">2</option>
-	                        <option value="">3</option>
-	                        <option value="">4</option>
-	                        <option value="">5</option>
-	                      </select>
-	                    </div>
-			              </div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="form-field">
-	          					<div class="select-wrap">
-	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                      	<option value="">Children</option>
-	                        <option value="">1</option>
-	                        <option value="">2</option>
-	                        <option value="">3</option>
-	                        <option value="">4</option>
-	                        <option value="">5</option>
-	                      </select>
-	                    </div>
-			              </div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<input type="text" class="form-control" placeholder="Phone number">
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="ion-ios-clock"></span></div>
-			            		<input type="text" class="form-control appointment_time" placeholder="Time">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-			              <input type="submit" value="Book Appartment Now" class="btn btn-primary py-3 px-4">
-			            </div>
-								</div>
-							</div>
-	    			</form>
-	    		</div>
-	    	</div>
-	    </div>
-    </section>
+    
    
     <section class="ftco-section ftco-services">
     	<div class="container">
@@ -182,6 +39,13 @@
               <div class="media-body py-4 px-3">
                 <h3 class="heading">Birthday party</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                
+                <form action="EvenementServlet" method="POST">
+                 <input name="nom" type="hidden" value="anniversaire">
+<button name="afficherUnEventIndex" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">VOIR</button>
+  <hr>
+ </form>
+                
                 <p><a href="#" class="btn btn-primary">Read more</a></p>
               </div>
             </div>    
