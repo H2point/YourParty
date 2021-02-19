@@ -60,6 +60,7 @@ public class EvenementServlet extends HttpServlet {
 		if(request.getParameter("afficherUnEventIndex")!=null){
 			
             try {
+            	
             String name = request.getParameter("nom");
             
             List<Evenement> evenementList = new ArrayList();
@@ -67,6 +68,7 @@ public class EvenementServlet extends HttpServlet {
             request.setAttribute("evenementList", evenementList);
             RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
             rd.forward(request, response);
+            
             }catch(Exception e){
             	System.out.println(e);
             }

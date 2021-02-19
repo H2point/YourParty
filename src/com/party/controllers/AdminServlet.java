@@ -59,6 +59,13 @@ public class AdminServlet extends HttpServlet {
             request.setAttribute("eventList", eventList);
             RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
             rd.forward(request, response);
+        }  
+		if(request.getParameter("afficherEventUser")!=null){
+            List<Event> eventList = new ArrayList();
+            eventList = adminDao.AfficherEventUser();
+            request.setAttribute("eventList", eventList);
+            RequestDispatcher rd = request.getRequestDispatcher("listOffreUser.jsp");
+            rd.forward(request, response);
         }
 		if(request.getParameter("afficherUnEvent")!=null){
 			int id = Integer.parseInt(request.getParameter("id"));

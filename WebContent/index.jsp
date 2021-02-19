@@ -12,8 +12,13 @@
           <div class="col-md-7 ftco-animate">
           	<h2 class="subheading">Welcome to Party organisation</h2>
           	<h1 class="mb-4">Let us help you set you perfect party</h1>
+          	<form action="AdminServlet" method="POST">
+			<button  value="AfficherEvent" name="afficherEventUser" type="submit" data-toggle="tooltip" title="" style="background:red;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
+			  <hr>
+			 </form>
             <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
           </div>
+         
         </div>
       </div>
     </div>
@@ -41,6 +46,7 @@
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
                 
                 <form action="EvenementServlet" method="POST">
+                
                  <input name="nom" type="hidden" value="anniversaire">
 <button name="afficherUnEventIndex" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">VOIR</button>
   <hr>

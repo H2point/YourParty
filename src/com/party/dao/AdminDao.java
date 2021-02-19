@@ -60,6 +60,14 @@ public class AdminDao {
 		eventList = query.list();
 		return eventList;
 	}
+	public List<Event> AfficherEventUser(){		
+		List<Event> eventList = new ArrayList();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Event"; //Entity name
+		Query query = session.createQuery(qr);
+		eventList = query.list();
+		return eventList;
+	}
 	public List<Event> AfficherUnEvent(int id){		
 		List<Event> eventList = new ArrayList();
 		Session session = HibernateUtil.getSessionFactory().openSession();		

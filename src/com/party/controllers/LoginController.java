@@ -39,9 +39,11 @@ public class LoginController extends HttpServlet {
 
 			if (loginDao.validate(username, password)!=0) {
 				int id=loginDao.validate(username, password);
+				
 				HttpSession session = request.getSession(true);
                 //session.setAttribute(id_ass, new Integer(param.intValue() + 1));
                 request.setAttribute("id",id);
+                
                 if(username.equals("userh")) {
                 	RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
     				dispatcher.forward(request, response);
