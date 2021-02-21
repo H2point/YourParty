@@ -38,6 +38,7 @@ public class AdminDao {
 		ev.setTheme(theme);
 		ev.setNbr_personne(nbr_personne);
 		ev.setPrice(price);
+		
 		session.update(ev);
 		transaction.commit();
 		session.close();			

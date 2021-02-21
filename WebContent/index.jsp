@@ -45,9 +45,9 @@
                 <h3 class="heading">Birthday party</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
                 
-                <form action="EvenementServlet" method="POST">
+                <form action="EvenementServlet" method="GET">
                 
-                 <input name="nom" type="hidden" value="anniversaire">
+                 <input name="nom" type="hidden" value="Graduation Party">
 <button name="afficherUnEventIndex" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">VOIR</button>
   <hr>
  </form>
@@ -58,15 +58,42 @@
           </div>
           <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
+             <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
               <div class="media-body py-4 px-3">
                 <h3 class="heading">Wedding party</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
                 <p><a href="#" class="btn btn-primary">Read more</a></p>
               </div>
-            </div>      
+             </div>      
           </div>
+          
+          
         </div>
+        <div class="row my-4 text-center">
+				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+				  <div class="d-block services-wrap text-center">
+				    <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
+				    <div class="media-body py-4 px-3">
+				      <h3 class="heading">Wedding party</h3>
+				      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+				      <p><button id="4" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
+				      <p><a href="#" class="btn btn-primary">Read more</a></p>
+				    </div>
+				  </div>      
+				</div>
+				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+				  <div class="d-block services-wrap text-center">
+				    <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
+				    <div class="media-body py-4 px-3">
+				      <h3 class="heading">Graduation Party</h3>
+				      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+				      <p><button id="5" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
+				      <p><a href="#" class="btn btn-primary">Read more</a></p>
+				    </div>
+				  </div>      
+				</div>  
+			</div>
+        
     	</div>
     </section>
   

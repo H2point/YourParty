@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +20,24 @@ public class Evenement {
 	private String nameEvent;
 	
 	@Column(name = "description")
-	private String Description;
+	private String description;
+	
+
+	@Lob
+	@Column(name = "image")
+	private byte[] image;
+
+
+
+	public byte[] getImage() {
+		return image;
+	}
+
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
 	
 	
 
@@ -27,12 +45,11 @@ public class Evenement {
 		super();
 	}
 
-	public Evenement(String nameEvent, String description) {
-		super();
-		this.nameEvent = nameEvent;
-		Description = description;
-	}
 	
+	
+
+	
+
 
 	public int getId_event() {
 		return id_event;
@@ -51,15 +68,20 @@ public class Evenement {
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	
 	
-	
+	public Evenement(String nameEvent, String description, byte[] image) {
+		super();
+		this.nameEvent = nameEvent;
+		this.description = description;
+		this.image = image;
+	}
 	
 
 }

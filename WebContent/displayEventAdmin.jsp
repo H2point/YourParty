@@ -22,6 +22,7 @@
         <th>Theme</th>
         <th>Nombre de personne</th>
         <th>Prix</th>
+        <th>image</th>
         <th>Modifier</th>
         <th>Delete</th>
       </tr>
@@ -33,6 +34,8 @@
         <td>${e.theme}</td>
         <td>${e.nbr_personne}</td>
         <td>${e.price} </td>
+        <td><img src="dataImage?id=${e.id}" width="60px" height="60px"/> </td>
+        
         <td>
          <form action="AdminServlet" method="POST">
          <div class="form-group">

@@ -24,7 +24,7 @@
 <body>
 <div class="sidenav">
  <br><br><br><br>
-<form action="AdminServlet" method="POST">
+<form action="AdminServlet" method="get">
 <button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
   <hr>
  </form>
@@ -33,7 +33,7 @@
   <hr>
 
   <hr>
-  <form action="EvenementServlet" method="POST">
+  <form action="EvenementServlet" method="get">
 <button  value="AfficherEvenement" name="afficherEvenement" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste events</button>
   <hr>
  </form>

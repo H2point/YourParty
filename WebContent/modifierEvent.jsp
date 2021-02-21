@@ -31,7 +31,7 @@
       <label >Price:</label>
       <input type="text" class="form-control" id="price" value="${e.price} " name="price" >
     </div>
-    
+     
  
   <br>
     <div class="form-group">

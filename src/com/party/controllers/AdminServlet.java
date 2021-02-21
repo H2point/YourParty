@@ -3,16 +3,19 @@ package com.party.controllers;
 //import java.io.File;
 //import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.party.dao.AdminDao;
 import com.party.models.Event;
@@ -21,11 +24,12 @@ import com.party.models.Event;
  * Servlet implementation class AdminServlet
  */
 @WebServlet("/AdminServlet")
+@MultipartConfig
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AdminDao adminDao;
 	
-	Event event=new Event();
+	Event event;
 	
 	public void init() {
 		adminDao = new AdminDao();
@@ -33,26 +37,7 @@ public class AdminServlet extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		if(request.getParameter("addEvent")!=null){
-            try {
-				insertEvent(request,response);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (ServletException e) {
-				e.printStackTrace();
-			}
-        }
-	
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		if(request.getParameter("afficherEvent")!=null){
             List<Event> eventList = new ArrayList();
             eventList = adminDao.AfficherEvent();
@@ -60,6 +45,64 @@ public class AdminServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
             rd.forward(request, response);
         }  
+		
+		/*if(request.getParameter("addEvent")!=null){
+            try {
+            	String theme = request.getParameter("theme");
+        		Double price= Double.parseDouble(request.getParameter("price"));
+        		int nbr_personne= Integer.parseInt(request.getParameter("nbr_personne"));
+        		Event newEvent = new Event( theme, price, nbr_personne);
+        		adminDao.saveEvent(newEvent);
+        		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        		dispatcher.forward(request, response);
+				//insertEvent(request,response);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ServletException e) {
+				e.printStackTrace();
+			}
+        }*/
+	
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if(request.getParameter("addEvent")!=null){
+            try {
+            	Event newEvent;
+            	String theme = request.getParameter("theme");
+        		Double price= Double.parseDouble(request.getParameter("price"));
+        		int nbr_personne= Integer.parseInt(request.getParameter("nbr_personne"));
+        		
+        		Part part=request.getPart("image");
+        		InputStream is=null;
+        		if(part!=null)
+        			is=part.getInputStream();
+        		byte[] data= new byte[is.available()];
+        		is.read(data);
+        		//newEvent.setImage(data);
+        		newEvent = new Event(theme,price,nbr_personne,data);
+        		adminDao.saveEvent(newEvent);
+        		RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
+        		dispatcher.forward(request, response);
+				//insertEvent(request,response);
+			} 
+			catch (IOException e) {
+				e.printStackTrace();
+			} catch (ServletException e) {
+				e.printStackTrace();
+			}
+        }
+		/*if(request.getParameter("afficherEvent")!=null){
+            List<Event> eventList = new ArrayList();
+            eventList = adminDao.AfficherEvent();
+            request.setAttribute("eventList", eventList);
+            RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
+            rd.forward(request, response);
+        }  */
 		if(request.getParameter("afficherEventUser")!=null){
             List<Event> eventList = new ArrayList();
             eventList = adminDao.AfficherEventUser();
@@ -80,6 +123,9 @@ public class AdminServlet extends HttpServlet {
              String theme = request.getParameter("theme");
      		Double price= Double.parseDouble(request.getParameter("price"));
      		int nbr_personne= Integer.parseInt(request.getParameter("nbr_personne"));
+     		
+     	
+    		
              adminDao.modifierEvent(id,theme, nbr_personne,price);                 
              RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
              rd.forward(request, response);                    
@@ -94,7 +140,7 @@ public class AdminServlet extends HttpServlet {
          } 
 		//doGet(request, response);
 	}
-	private void insertEvent(HttpServletRequest request, HttpServletResponse response) 
+	/*private void insertEvent(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		String theme = request.getParameter("theme");
 		Double price= Double.parseDouble(request.getParameter("price"));
@@ -109,13 +155,13 @@ public class AdminServlet extends HttpServlet {
             fileInputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+       
  
         
 		Event newEvent = new Event( theme, price, nbr_personne);
 		adminDao.saveEvent(newEvent);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
-	}
+	}*/
 
 }

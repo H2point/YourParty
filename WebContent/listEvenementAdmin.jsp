@@ -21,6 +21,7 @@
       <tr>
         <th>Nom d'evenement</th>
         <th>Description</th>
+        <th>image</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -30,6 +31,8 @@
       <tr>
         <td>${ev.nameEvent}</td>
         <td>${ev.description}</td>
+        <td><img src="evenementImage?id=${ev.id_event}" width="60px" height="60px"/> </td>
+        
          
          <td>
          <form action="EvenementServlet" method="POST">

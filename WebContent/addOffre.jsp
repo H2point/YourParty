@@ -20,7 +20,7 @@
 
 <div class="container">
   <h1>ADD EVENT INFOS</h1>
-  <form action="AdminServlet">
+  <form action="AdminServlet" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="email">Theme:</label>
       <input type="text" class="form-control" id="theme" placeholder="theme" name="theme" >
@@ -34,9 +34,11 @@
       <input type="text" class="form-control" id="price" placeholder="Set a price" name="price" >
     </div>
     <div class="custom-file">
-    <input type="file" name="file" class="custom-file-input" id="validatedCustomFile">
-    <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
+    
+    <input type="file" name="image" class="">
+    
     <div class="invalid-feedback">Example invalid custom file feedback</div>
+    
   </div>
   <br>
   <hr>

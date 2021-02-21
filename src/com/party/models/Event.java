@@ -31,24 +31,39 @@ public class Event implements Serializable {
 	
 	@Column(name = "nbr_personne")
 	private int nbr_personne;
-	
-	
 
-	
+	@Lob
+	@Column(name = "image")
+	private byte[] image;
 
-	public Event(String theme, double price, int nbr_personne) {
-		super();
-		
-		this.theme = theme;
-		this.price = price;
-		this.nbr_personne = nbr_personne;
+
+
+	public byte[] getImage() {
+		return image;
 	}
+
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
+	
+
+	
 
 
 	public Event() {
 		super();
 	}
-	
+
+
+	public Event(String theme, double price, int nbr_personne, byte[] image) {
+		super();
+		this.theme = theme;
+		this.price = price;
+		this.nbr_personne = nbr_personne;
+		this.image = image;
+	}
 
 
 	public int getId() {

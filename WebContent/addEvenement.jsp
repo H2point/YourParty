@@ -18,7 +18,7 @@
 
 <div class="container">
   <h1>ADD EVENT INFOS</h1>
-  <form action="EvenementServlet" >
+  <form action="EvenementServlet" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="email">Name Event:</label>
       <input type="text" class="form-control" id="nameEvent" placeholder="name Event" name="nameEvent" >
@@ -29,12 +29,14 @@
     </div>
      
    
+  <div class="custom-file">
     
-    <div class="custom-file">
-    <input type="file" name="file" class="custom-file-input" id="validatedCustomFile">
-    <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
+    <input type="file" name="image" class="">
+    
     <div class="invalid-feedback">Example invalid custom file feedback</div>
-  </div>
+    
+  </div>  
+  
   <br>
   <hr>
     <div class="form-group">

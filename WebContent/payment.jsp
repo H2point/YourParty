@@ -39,6 +39,7 @@ $('[data-toggle="tooltip"]').tooltip()
 })</script>
  </head>
   <body oncontextmenu='return false' class='snippet-body'>
+    <%@ include file = "layout.jsp" %>
 <div class="container py-5">
     <!-- For demo purpose -->
     <div class="row mb-4">
@@ -87,39 +88,14 @@ $('[data-toggle="tooltip"]').tooltip()
                                             </label> <input type="text" required class="form-control"> </div>
                                     </div>
                                 </div>
-                                <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                                <div class="card-footer"><a href="merci.jsp"><button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button></a> 
                             </form>
                         </div>
                     </div> <!-- End -->
                     <!-- Paypal info -->
-                    <div id="paypal" class="tab-pane fade pt-3">
-                        <h6 class="pb-2">Select your paypal account type</h6>
-                        <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Domestic </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">International </label></div>
-                        <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button> </p>
-                        <p class="text-muted"> Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
-                    </div> <!-- End -->
+                     <!-- End -->
                     <!-- bank transfer info -->
-                    <div id="net-banking" class="tab-pane fade pt-3">
-                        <div class="form-group "> <label for="Select Your Bank">
-                                <h6>Select your Bank</h6>
-                            </label> <select class="form-control" id="ccmonth">
-                                <option value="" selected disabled>--Please select your Bank--</option>
-                                <option>Bank 1</option>
-                                <option>Bank 2</option>
-                                <option>Bank 3</option>
-                                <option>Bank 4</option>
-                                <option>Bank 5</option>
-                                <option>Bank 6</option>
-                                <option>Bank 7</option>
-                                <option>Bank 8</option>
-                                <option>Bank 9</option>
-                                <option>Bank 10</option>
-                            </select> </div>
-                        <div class="form-group">
-                            <p> <button type="button" class="btn btn-primary "><i class="fas fa-mobile-alt mr-2"></i> Proceed Pyment</button> </p>
-                        </div>
-                        <p class="text-muted">Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
-                    </div> <!-- End -->
+                     <!-- End -->
                     <!-- End -->
                 </div>
             </div>
