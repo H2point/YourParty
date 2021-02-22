@@ -28,7 +28,7 @@ public class LoginController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//response.sendRedirect("login.jsp");
+		this.getServletContext().getRequestDispatcher( "/login.jsp" ).forward( request, response );
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +41,7 @@ public class LoginController extends HttpServlet {
 				int id=loginDao.validate(username, password);
 				
 				HttpSession session = request.getSession(true);
-                //session.setAttribute(id_ass, new Integer(param.intValue() + 1));
+                session.setAttribute("id",id);
                 request.setAttribute("id",id);
                 
                 if(username.equals("userh")) {

@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Query;
 
-
+import com.party.models.Evenement;
 import com.party.models.Event;
 import com.party.util.HibernateUtil;
 
@@ -76,6 +76,15 @@ public class AdminDao {
 		Query query = session.createQuery(qr);
 		eventList = query.list();
 		return eventList;
+	}
+	public List<Evenement> AfficherUnEventIndex(String name){		
+		List<Evenement> evenementList = new ArrayList();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Evenement where nameEvent="+"'"+name+"'"; //Entity name
+		Query query = session.createQuery(qr);
+		evenementList = query.list();
+		return evenementList;
+		
 	}
 	
 

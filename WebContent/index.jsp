@@ -2,8 +2,9 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-  <%@ include file = "layout.jsp" %>
-    <!-- END nav -->
+
+<%@ include file = "layout.jsp" %>
+<%@ include file = "reservationForm.jsp" %>
 
     <div class="hero-wrap js-fullheight" style="background-image: url('images/glass_crits.jpg'); width: fit-content;" data-stellar-background-ratio="0.2">
       <div class="overlay"></div>
@@ -12,64 +13,73 @@
           <div class="col-md-7 ftco-animate">
           	<h2 class="subheading">Welcome to Party organisation</h2>
           	<h1 class="mb-4">Let us help you set you perfect party</h1>
-          	<form action="AdminServlet" method="POST">
+            
+            <form action="AdminServlet" method="POST">
 			<button  value="AfficherEvent" name="afficherEventUser" type="submit" data-toggle="tooltip" title="" style="background:red;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
-			  <hr>
+			  
 			 </form>
+			 <hr>
+            
             <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
           </div>
-         
         </div>
       </div>
+      
     </div>
 
-    
-   
+   <br><br><br><br><br>
     <section class="ftco-section ftco-services">
     	<div class="container">
     		<div class="row">
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/bab_shower.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Baby shower</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/birthday16.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Birthday party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                
-                <form action="EvenementServlet" method="GET">
-                
-                 <input name="nom" type="hidden" value="Graduation Party">
-<button name="afficherUnEventIndex" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">VOIR</button>
-  <hr>
- </form>
-                
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-             <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Wedding party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-             </div>      
-          </div>
-          
-          
-        </div>
-        <div class="row my-4 text-center">
+				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+				  <div class="d-block services-wrap text-center">
+				    <div class="img" style="background-image: url(images/birthday16.jpg);"></div>
+				    <div class="media-body py-4 px-3">
+				      <h3 class="heading">Birthday party</h3>
+				      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+				      <p><button id="1" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
+				       <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="Birthday">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 						</form>
+         
+				    </div>
+				  </div>    
+				</div>
+				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+				  <div class="d-block services-wrap text-center">
+				    <div class="img" style="background-image: url(images/bab_shower.jpg);"></div>
+				    <div class="media-body py-4 px-3">
+				      <h3 class="heading">Baby shower</h3>
+				      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+				      <p><button id="2" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
+				        <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="Baby shower">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 						</form>
+         
+				    </div>
+				  </div>      
+				</div>
+				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+				  <div class="d-block services-wrap text-center">
+				    <div class="img" style="background-image: url(images/gender-reveal.jpg);"></div>
+				    <div class="media-body py-4 px-3">
+				      <h3 class="heading">Gender Reveal Party</h3>
+				      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+				      <p><button id="3" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
+				      <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="Gender Reveal">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 						</form>
+				    </div>
+				  </div>      
+				</div>
+			</div>
+			<div class="row my-4 text-center">
 				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
 				  <div class="d-block services-wrap text-center">
 				    <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
@@ -77,23 +87,30 @@
 				      <h3 class="heading">Wedding party</h3>
 				      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
 				      <p><button id="4" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
-				      <p><a href="#" class="btn btn-primary">Read more</a></p>
+				      <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="Wedding">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 						</form>
 				    </div>
 				  </div>      
 				</div>
 				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
 				  <div class="d-block services-wrap text-center">
-				    <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
+				    <div class="img" style="background-image: url(images/grad.jpg);"></div>
 				    <div class="media-body py-4 px-3">
 				      <h3 class="heading">Graduation Party</h3>
 				      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
 				      <p><button id="5" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
-				      <p><a href="#" class="btn btn-primary">Read more</a></p>
+				      <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="Graduation">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 						</form>
 				    </div>
 				  </div>      
 				</div>  
 			</div>
-        
     	</div>
     </section>
   
@@ -282,6 +299,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
+  <script src="js/user-home.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -298,7 +316,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-
+  <script type="text/javascript">
+  	hideStuff();
+  </script>
 
     
   </body>

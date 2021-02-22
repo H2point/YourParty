@@ -42,6 +42,7 @@ public class EvenementServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("listEvenementAdmin.jsp");
             rd.forward(request, response);
         }
+		
 		if(request.getParameter("afficherUnEventIndex")!=null){
 			
             try {

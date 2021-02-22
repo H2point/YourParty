@@ -19,10 +19,21 @@
  <c:forEach items="${eventList}" var="e">
 <form action="AdminServlet" method="POST">
 <input type="text" class="form-control" id="theme" value="${e.id}" name="id" hidden="true">
-    <div class="form-group">
+ <div class="form-group">
+    <label for="exampleFormControlSelect1">Theme</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="theme" value="${e.theme}">
+  
+      <option>Birthday</option>
+      <option>Baby Shower</option>
+      <option>Gender Reveal Party</option>
+      <option>Wedding Party</option>
+      <option>Graduation Party</option>
+    </select>
+  </div>
+    <%-- <div class="form-group">
       <label for="email">Theme:</label>
       <input type="text" class="form-control" id="theme" value="${e.theme}" name="theme" >
-    </div>
+    </div> --%>
     <div class="form-group">
       <label >Nombre de personnes:</label>
       <input type="text" class="form-control" value="${e.nbr_personne}" name="nbr_personne" >

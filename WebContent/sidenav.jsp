@@ -28,7 +28,9 @@
 <button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
   <hr>
  </form>
-  <a type="button" href="addOffre.jsp">Ajouter une offre</a>
+ 
+ 
+  <a type="button"  href="addOffre.jsp">Ajouter une offre</a>
   
   <hr>
 
@@ -43,10 +45,16 @@
   <a type="button" href="addEvenement.jsp">Ajouter un event</a>
   
   <hr>
+  <form action="Reservations" method="POST">
+				<button  value="viewPendingReservations" name="viewPendingReservations" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">View Pending Reservations</button>
+			</form>
+			<hr>
+		    <form action="Reservations" method="POST">
+				<button  value="viewConfirmedReservations" name="viewConfirmedReservations" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">View Confirmed Reservations</button>
+			</form>
+		    <hr>
 
-  <hr>
-  <a href="#">View reservations</a>
-    <hr>
+
   
 </div>
 </body>

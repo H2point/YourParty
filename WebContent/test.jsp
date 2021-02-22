@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%@ include file = "layout.jsp" %>
+  <%@ include file = "reservationForm.jsp" %>
     <!-- END nav -->
     <br><br>
 	
@@ -23,6 +24,7 @@
               <h3>${ev.nameEvent}</h3>
                 
                 <h3 class="heading">Description:${ev.description}</h3>
+                <p><button class="btn btn-primary" onclick="openReservationForm(${ev.id_event})">Reserve</button></p>
                
               </div>
             </div>      
@@ -129,6 +131,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script type="text/javascript">
+  	hideStuff();
+  </script>
 
 
          

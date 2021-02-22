@@ -11,7 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table( name = "event")
+@Table( name = "offre")
 public class Event implements Serializable {
 	
 	/**
