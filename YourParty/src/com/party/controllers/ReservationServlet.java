@@ -27,8 +27,11 @@ public class ReservationServlet extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		List<Reservation> reservationsList = new ArrayList<Reservation>();
+        reservationsList = reservationDao.afficherPendingReservations();
+        request.setAttribute("pendingReservationsList", reservationsList);
+        RequestDispatcher rd = request.getRequestDispatcher("displayPendingReservationsAdmin.jsp");
+        rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,8 +43,8 @@ public class ReservationServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("displayPendingReservationsAdmin.jsp");
             rd.forward(request, response);
         }
-		if(request.getParameter("confirmReservation") != null) {
-			int id = Integer.parseInt(request.getParameter("confirmReservation"));
+		if(request.getParameter("finishedReservation") != null) {
+			int id = Integer.parseInt(request.getParameter("finishedReservation"));
 			reservationDao.updateStatusReservation(id, 0);
 			List<Reservation> reservationsList = new ArrayList<Reservation>();
             reservationsList = reservationDao.afficherPendingReservations();
@@ -49,20 +52,11 @@ public class ReservationServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("displayPendingReservationsAdmin.jsp");
             rd.forward(request, response);
 		}
-		if(request.getParameter("deleteReservation") != null) {
-			int id = Integer.parseInt(request.getParameter("deleteReservation"));
-			reservationDao.updateStatusReservation(id, 2);
-			List<Reservation> reservationsList = new ArrayList<Reservation>();
-            reservationsList = reservationDao.afficherPendingReservations();
-            request.setAttribute("pendingReservationsList", reservationsList);
-            RequestDispatcher rd = request.getRequestDispatcher("displayPendingReservationsAdmin.jsp");
-            rd.forward(request, response);
-		}
-		if(request.getParameter("viewConfirmedReservations") != null){
+		if(request.getParameter("viewFinishedReservations") != null){
             List<Reservation> reservationsList = new ArrayList<Reservation>();
-            reservationsList = reservationDao.afficherConfirmedReservations();
-            request.setAttribute("confirmedReservationsList", reservationsList);
-            RequestDispatcher rd = request.getRequestDispatcher("displayConfirmedReservationsAdmin.jsp");
+            reservationsList = reservationDao.afficherFinishedReservations();
+            request.setAttribute("finishedReservationsList", reservationsList);
+            RequestDispatcher rd = request.getRequestDispatcher("displayFinishedReservationsAdmin.jsp");
             rd.forward(request, response);
         }
 	}

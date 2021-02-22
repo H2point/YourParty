@@ -29,7 +29,7 @@ public class AdminDao {
 			e.printStackTrace();
 		}
 	}
-	public void modifierEvent(int id, String theme,int nbr_personne,double price) {
+	public void modifierEvent(int id, int theme,int nbr_personne,double price) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		Event ev = (Event) session.load(Event.class, id);
@@ -58,6 +58,16 @@ public class AdminDao {
 		eventList = query.list();
 		return eventList;
 	}
+	
+	public List<Event> AfficherEventUser(){		
+		List<Event> eventList = new ArrayList();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Event"; //Entity name
+		Query query = session.createQuery(qr);
+		eventList = query.list();
+		return eventList;
+	}
+	
 	public List<Event> AfficherUnEvent(int id){		
 		List<Event> eventList = new ArrayList();
 		Session session = HibernateUtil.getSessionFactory().openSession();		

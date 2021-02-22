@@ -41,7 +41,7 @@
 			</form>
 			<hr>
 		    <form action="Reservations" method="POST">
-				<button  value="viewConfirmedReservations" name="viewConfirmedReservations" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">View Confirmed Reservations</button>
+				<button  value="viewFinishedReservations" name="viewFinishedReservations" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">View Finished Reservations</button>
 			</form>
 		    <hr>
 		  

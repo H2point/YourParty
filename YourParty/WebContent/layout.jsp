@@ -22,6 +22,15 @@
 	<link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reservationForm.css">
+    <style>
+    	.dropdown:hover > .dropdown-menu {
+		    display: block;
+		}
+		.dropdown > .dropdown-toggle:active {
+		    /*Without this, clicking will make it sticky*/
+		    pointer-events: none;
+		}
+    </style>
     
   </head>
   <body>
@@ -41,35 +50,44 @@
 			</div>
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">Party<span>Setter</span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="fa fa-bars"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	        	
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
-	        <% 
-	        	if (request.getAttribute("id")!=null) {
-	        		int id = (Integer)request.getAttribute("id");
-	        		session.setAttribute("id",id);
-	        	}
-	        %>
-	        <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-	        <% if(null == session.getAttribute("id")){%>
-	        <a href="login.jsp" class='btn btn-dark' style="color:white">login</a>
-	        <% } else {%>
-	        <a href="logout.jsp" class='btn btn-dark' style="color:white">logout</a>
-	        <% } %>
-	        
-	      </div>
-	    </div>
-	  </nav>
+		    <div class="container">
+		    	<a class="navbar-brand" href="index.html">Party<span>Setter</span></a>
+		      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        	<span class="fa fa-bars"></span> Menu
+		      	</button>
+		      	<div class="collapse navbar-collapse" id="ftco-nav">
+			        <ul class="navbar-nav ml-auto">
+			        	<li class="nav-item active"><a href="home" class="nav-link"><i class="fa fa-home fa-2x" aria-hidden="true"></i>&nbsp; Home</a></li>
+			        	<!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
+			        	<li class="nav-item"><a href="#services" class="nav-link"><i class="fa fa-birthday-cake fa-2x" aria-hidden="true"></i>&nbsp; Services</a></li>
+			        	
+			          	<li class="nav-item">
+			          		<a href="offers" class="nav-link"><i class="fa fa-bullhorn fa-2x" aria-hidden="true"></i>&nbsp; Sales</a>
+			          		
+			          	</li>
+			            <li class="nav-item dropdown">
+			            	<a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp; Account</a>
+			            	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					          <a class="dropdown-item" href="#">View Account</a>
+					          <a class="dropdown-item" href="YourReservations">View reservations</a>
+					        </div>
+						</li>
+					</ul>
+			        <% 
+			        	if (request.getAttribute("id")!=null) {
+			        		int id = (Integer)request.getAttribute("id");
+			        		session.setAttribute("id",id);
+			        	}
+			        %>
+			        <% if(null == session.getAttribute("id")){%>
+			        	<a href="login.jsp" class='btn btn-dark' style="color:white">login</a>
+			        <% } else {%>
+			        <a href="logout.jsp" class='btn btn-dark' style="color:white">logout</a>
+			        <% } %>
+		      	</div>
+		    </div>
+	  	</nav>
     <!-- END nav -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    
 </body>

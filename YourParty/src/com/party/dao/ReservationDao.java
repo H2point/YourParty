@@ -37,6 +37,16 @@ public class ReservationDao {
 		return reservationsList;
 	}
 	
+	public List<String> getListDateReservations() {
+		List<Reservation> listReservations = new ArrayList<Reservation>();
+		listReservations = this.afficherReservations();
+		List<String> listDates = new ArrayList<String>();
+		for(int i = 0; i < listReservations.size(); i++) {
+			listDates.add(listReservations.get(i).getDateReservation());
+		}
+		return listDates;
+	}
+	
 	public List<Reservation> afficherPendingReservations() {
 		List<Reservation> reservationsList = new ArrayList<Reservation>();
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -46,7 +56,7 @@ public class ReservationDao {
 		return reservationsList;
 	}
 	
-	public List<Reservation> afficherConfirmedReservations() {
+	public List<Reservation> afficherFinishedReservations() {
 		List<Reservation> reservationsList = new ArrayList<Reservation>();
 		Session session = HibernateUtil.getSessionFactory().openSession();		
 		String qr = "FROM Reservation R WHERE R.statutReservation = 0"; //Entity name
@@ -71,5 +81,23 @@ public class ReservationDao {
 		session.delete(reservation);
         transaction.commit();
 		session.close();	
+	}
+	
+	public List<Reservation> afficherPendingReservationsByUser(int id){
+		List<Reservation> reservationsList = new ArrayList<Reservation>();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Reservation WHERE idUser = " + id + "AND statutReservation = 1"; //Entity name
+		Query query = session.createQuery(qr);
+		reservationsList = query.list();
+		return reservationsList;
+	}
+	
+	public List<Reservation> afficherFinishedReservationsByUser(int id){
+		List<Reservation> reservationsList = new ArrayList<Reservation>();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Reservation WHERE idUser = " + id + "AND statutReservation = 0"; //Entity name
+		Query query = session.createQuery(qr);
+		reservationsList = query.list();
+		return reservationsList;
 	}
 }

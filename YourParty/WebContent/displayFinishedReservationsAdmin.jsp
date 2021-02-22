@@ -27,7 +27,7 @@
 	    			</thead>
 	    
 	    			<tbody>
-	    				<c:forEach items="${confirmedReservationsList}" var="r">
+	    				<c:forEach items="${finishedReservationsList}" var="r">
 	      					<tr>
 						        <td>${r.idReservation}</td>
 						        <td>${r.idUser}</td>
@@ -67,7 +67,7 @@
 	<script src="js/googleMaps.js"></script>
 	<script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrEQP3EY36MHia17iu39Cc8LB9YFkWV70&callback=initMap&libraries=&v=weekly"
-      async
-></script>
+      async>
+	</script>
 </body>
 </html>

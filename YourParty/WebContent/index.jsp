@@ -106,7 +106,7 @@
 	    </div>
     </section>
    
-    <section class="ftco-section ftco-services">
+    <section class="ftco-section ftco-services" id="services">
     	<div class="container">
     		<div class="row">
 				<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
