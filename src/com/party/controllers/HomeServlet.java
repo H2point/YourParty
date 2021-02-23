@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,8 +32,8 @@ public class HomeServlet extends HttpServlet {
 		
 		List<String> listDates = new ArrayList<String>();
 		listDates = getListDateReservations();
-		request.setAttribute( "listDates", listDates);
-		this.getServletContext().getRequestDispatcher( "/test.jsp" ).forward( request, response );
+		request.setAttribute("listDates",listDates);
+		this.getServletContext().getRequestDispatcher("/payment.jsp").forward( request, response );
 		
 	}
 	
@@ -55,8 +56,12 @@ public class HomeServlet extends HttpServlet {
 			
 			Reservation reservation = new Reservation(idUser, idEvent, dateEvent, nbrPersonnes, adresse, prixReservation, 1);
 			reservationDao.saveReservation(reservation);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("payment.jsp");
+    		dispatcher.forward(request, response);
+			//RequestDispatcher rd = request.getRequestDispatcher("payment.jsp");
+            //rd.forward(request, response);
 			//this.getServletContext().getRequestDispatcher( "/index.jsp" ).forward( request, response );
-			response.sendRedirect("home");
+			//response.sendRedirect("Paiement");
 		}
 		else {
 			response.sendRedirect("login");

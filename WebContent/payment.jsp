@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
                         <html>
@@ -31,7 +32,18 @@ input[type="radio"] {
 
 .bold {
     font-weight: bold
-}</style>
+    
+}
+
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+</style>
                                 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
                                 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
                                 <script type='text/javascript'>$(function() {
@@ -40,7 +52,16 @@ $('[data-toggle="tooltip"]').tooltip()
  </head>
   <body oncontextmenu='return false' class='snippet-body'>
     <%@ include file = "layout.jsp" %>
+    
+   
+    
 <div class="container py-5">
+
+<%--  <c:forEach items="${reservationsList}" var="r"> --%>
+							    		
+							
+	
+	
     <!-- For demo purpose -->
     <div class="row mb-4">
         <div class="col-lg-8 mx-auto text-center">
@@ -63,10 +84,16 @@ $('[data-toggle="tooltip"]').tooltip()
                     <div class="tab-content">
                         <!-- credit card info-->
                         <div id="credit-card" class="tab-pane fade show active pt-3">
-                            <form role="form">
-                                <div class="form-group"> <label for="username">
+                        
+                            <form action="Paiement" method="POST" type="redirectAction">
+                         <%--   <input type="hidden"  name="idevent" value="${r.idEvenenemnt}" >   
+							      <input type="hidden"  name="total" value="${r.prixReservation}" > --%>    
+							      			
+                                <div class="form-group"> <label for="ownerCard">
                                         <h6>Card Owner</h6>
-                                    </label> <input type="text" name="username" placeholder="Card Owner Name" required class="form-control "> </div>
+                                </label> <input type="text" name="ownerCard" placeholder="Card Owner Name" required class="form-control "> </div>
+                                 
+                                
                                 <div class="form-group"> <label for="cardNumber">
                                         <h6>Card number</h6>
                                     </label>
@@ -84,12 +111,13 @@ $('[data-toggle="tooltip"]').tooltip()
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
-                                                <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                            </label> <input type="text" required class="form-control"> </div>
+                                                <h5>CVV <i class="fa fa-question-circle d-inline"></i></h5>
+                                            </label> <input type="text" required class="form-control">
+                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer"><a href="merci.jsp"><button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button></a> 
-                            </form>
+                                <div class="card-footer"><button onclick="myFunction()" type="submit" name="confirmPayment" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                           </div> </form>
                         </div>
                     </div> <!-- End -->
                     <!-- Paypal info -->
@@ -101,5 +129,16 @@ $('[data-toggle="tooltip"]').tooltip()
             </div>
         </div>
     </div>
+   <%--  </c:forEach> --%></div>
                             </body>
+                            <script>
+function myFunction() {
+  var x = document.getElementById("viewRerservation");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
                         </html>

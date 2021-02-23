@@ -27,7 +27,7 @@
 </style>
 
 <body>
-
+<%@ include file = "layout.jsp" %>
 <div class="signup-form">	
     <form action="<%=request.getContextPath()%>/register" method="post">
 		<h2>Create Account</h2>

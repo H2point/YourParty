@@ -75,6 +75,7 @@
         	  
           %>
 	       <a href="logout.jsp" class='btn btn-dark' style="color:white">logout</a>
+	      
            <%
           }
           %>

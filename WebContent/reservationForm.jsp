@@ -47,10 +47,16 @@
 						</div>
 					</div>
 	       		</div>
-	   			<div class="modal-footer">
-	        		<button class="btn btn-primary" type="submit" name="reservation-details">Confirm Reservation</button>
-	   			</div>
-	   		</form>
+		       		
+	   		
+	   		
+		   			<div class="modal-footer">
+		   			
+		        		<button class="btn btn-primary" type="submit" name="reservation-details">Confirm Reservation</button>
+		        		
+		   			</div>
+		   			</form>
+	   			
 	   	</div>
 	</div>
 </div>
