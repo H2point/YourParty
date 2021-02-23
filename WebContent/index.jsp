@@ -49,7 +49,7 @@
 					<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
 				</form>
 				<br>
-        		<p><button id="1" class="btn btn-primary" onclick="openReservationForm(this.id)">Reserve</button></p>
+        		<p><button  class="btn btn-primary" onclick="openReservationForm(${ev.id_event})">Reserve</button></p>
         	 </div>
        		 </div>    
         </div>
