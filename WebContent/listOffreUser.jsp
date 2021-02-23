@@ -23,7 +23,7 @@
                 <h3 class="heading">Offre :${e.theme}</h3>
                 <h3 class="heading">Nombre de personnes :${e.nbr_personne}</h3>
                 <h3 class="heading">Prix offre : ${e.price} Dhs</h3>
-             
+             	
                 <p><a href="#" class="btn btn-primary">Reserver</a></p>
               </div>
             </div>      

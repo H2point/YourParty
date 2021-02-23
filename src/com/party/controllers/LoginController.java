@@ -56,7 +56,7 @@ public class LoginController extends HttpServlet {
                 	RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
     				dispatcher.forward(request, response);
                 }
-				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("welcome");
 				dispatcher.forward(request, response);
 			}else {
 				throw new Exception("Login not successful..");
@@ -74,7 +74,7 @@ public class LoginController extends HttpServlet {
 		String password = request.getParameter("password");
 
 		if (loginDao.validate(username, password)!=0) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("welcome");
 			dispatcher.forward(request, response);
 		}else {
 			throw new Exception("Login not successful..");

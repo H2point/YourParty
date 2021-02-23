@@ -51,7 +51,7 @@ public class UserController extends HttpServlet {
 
 		userDao.saveUser(user);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("welcome");
 		dispatcher.forward(request, response);
 	}
 }

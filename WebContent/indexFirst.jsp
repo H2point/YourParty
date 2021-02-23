@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-       <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+      <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-
-<%@ include file = "layout.jsp" %>
-<%@ include file = "reservationForm.jsp" %>
+  <%@ include file = "layout.jsp" %>
+    <!-- END nav -->
 
     <div class="hero-wrap js-fullheight" style="background-image: url('images/glass_crits.jpg'); width: fit-content;" data-stellar-background-ratio="0.2">
       <div class="overlay"></div>
@@ -14,22 +13,20 @@
           <div class="col-md-7 ftco-animate">
           	<h2 class="subheading">Welcome to Party organisation</h2>
           	<h1 class="mb-4">Let us help you set you perfect party</h1>
-            
-            <form action="AdminServlet" method="POST">
+          	<form action="AdminServlet" method="POST">
 			<button  value="AfficherEvent" name="afficherEventUser" type="submit" data-toggle="tooltip" title="" style="background:red;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
 			  
 			 </form>
-			 <hr>
-            
             <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
           </div>
+         
         </div>
       </div>
-      
     </div>
 
-   <br><br><br><br><br>
-   <section class="ftco-section ftco-services">
+    
+   
+<section class="ftco-section ftco-services">
 	<div class="container">
     <div class="row">
     	 
@@ -243,7 +240,6 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="js/user-home.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -260,9 +256,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script type="text/javascript">
-  	hideStuff();
-  </script>
+
 
     
   </body>
