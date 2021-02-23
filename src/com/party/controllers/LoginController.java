@@ -53,7 +53,7 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("id",id);
                 
                 if(username.equals("userh")) {
-                	RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
+                	RequestDispatcher dispatcher = request.getRequestDispatcher("adminPanel.jsp");
     				dispatcher.forward(request, response);
                 }
 				RequestDispatcher dispatcher = request.getRequestDispatcher("welcome");
