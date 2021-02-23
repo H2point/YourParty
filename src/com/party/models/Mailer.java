@@ -11,7 +11,7 @@ public class Mailer {
 	public static void send(String to,String subject,String msg){  
 		  
 		final String user="partycontact3@gmail.com";
-		final String pass="";
+		final String pass="projetjee";
 		  
 		 
 		Properties props = new Properties();  
