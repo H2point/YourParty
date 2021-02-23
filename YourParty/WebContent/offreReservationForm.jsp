@@ -9,7 +9,7 @@
 	       			<span aria-hidden="true">&times;</span>
 	       		</button>
 	   		</div>
-	   		<form action="<%=request.getContextPath()%>/offers" method="post">
+	   		<form action="offers" method="post" id="offre-form">
 	   			<% List<String> listDates = (List<String>)request.getAttribute("listDates"); %>
 	   			<div class="modal-body">
 	   				<div class="row my-3 text-center" hidden>
@@ -77,4 +77,15 @@
         autoclose: true,
         //container: '.datepicker'
     });
+    
+    $(document).on("submit", "#offre-form", function(event) {
+	    var $form = $(this);
+
+	    $.post($form.attr("post"), $form.serialize(), function(response) {
+	        
+	    	;
+	    });
+        
+	    event.preventDefault(); // Important! Prevents submitting the form.
+	});
 </script>

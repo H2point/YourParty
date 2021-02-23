@@ -17,7 +17,7 @@ import com.party.dao.ReservationDao;
 import com.party.models.Event;
 import com.party.models.Reservation;
 
-@WebServlet("/YourReservations")
+@WebServlet("/MyReservations")
 public class ReservationsUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ReservationDao reservationDao;

@@ -58,9 +58,9 @@ public class OffreServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		if(request.getParameter("offre-reservation-details")!=null) {
+		//if(request.getParameter("offre-reservation-details")!=null) {
 			addReservation(request, response);
-		}
+		//}
 	}
 	
 	private void addReservation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -75,7 +75,7 @@ public class OffreServlet extends HttpServlet {
 			
 			Reservation reservation = new Reservation(idUser, idEvent, dateEvent, nbrPersonnes, adresse, prixReservation, 1);
 			reservationDao.saveReservation(reservation);
-			response.sendRedirect("offers");
+			
 		}
 		else {
 			response.sendRedirect("login");

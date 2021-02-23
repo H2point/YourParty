@@ -57,21 +57,23 @@
 		      	</button>
 		      	<div class="collapse navbar-collapse" id="ftco-nav">
 			        <ul class="navbar-nav ml-auto">
-			        	<li class="nav-item active"><a href="home" class="nav-link"><i class="fa fa-home fa-2x" aria-hidden="true"></i>&nbsp; Home</a></li>
+			        	<li class="nav-item active"><a href="home" class="nav-link"><i class="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp; Home</a></li>
 			        	<!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-			        	<li class="nav-item"><a href="#services" class="nav-link"><i class="fa fa-birthday-cake fa-2x" aria-hidden="true"></i>&nbsp; Services</a></li>
+			        	<li class="nav-item"><a href="#services" class="nav-link"><i class="fa fa-birthday-cake fa-lg" aria-hidden="true"></i>&nbsp; Services</a></li>
 			        	
 			          	<li class="nav-item">
-			          		<a href="offers" class="nav-link"><i class="fa fa-bullhorn fa-2x" aria-hidden="true"></i>&nbsp; Sales</a>
-			          		
+			          		<a href="offers" class="nav-link"><i class="fa fa-bullhorn fa-lg" aria-hidden="true"></i>&nbsp; Sales</a>
 			          	</li>
 			            <li class="nav-item dropdown">
-			            	<a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp; Account</a>
+			            	<a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp; Account</a>
 			            	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					          <a class="dropdown-item" href="#">View Account</a>
 					          <a class="dropdown-item" href="YourReservations">View reservations</a>
 					        </div>
 						</li>
+						<li class="nav-item">
+			          		<a href="contactUs" class="nav-link"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i>&nbsp; Contact Us</a>
+			          	</li>
 					</ul>
 			        <% 
 			        	if (request.getAttribute("id")!=null) {
