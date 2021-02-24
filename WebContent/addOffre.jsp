@@ -22,7 +22,7 @@
 
 <div class="container">
   <h1>ADD EVENT INFOS</h1>
-  <form action="Offre" method="post" enctype="multipart/form-data">
+  <form action="Offre" method="post" enctype="multipart/form-data" >
     <!-- <div class="form-group">
       <label for="email">Theme:</label>
       <input type="text" class="form-control" id="theme" placeholder="theme" name="theme" >
@@ -63,5 +63,7 @@
   </form>
 </div>
 </div>
+
 </body>
+
 </html>

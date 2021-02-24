@@ -1,6 +1,6 @@
 package com.party.controllers;
 
-//import java.io.File;
+
 //import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,9 +23,7 @@ import com.party.dao.AdminDao;
 import com.party.models.Event;
 import com.party.util.HibernateUtil;
 
-/**
- * Servlet implementation class AdminServlet
- */
+
 @WebServlet("/Offre")
 @MultipartConfig
 public class AdminServlet extends HttpServlet {
@@ -81,7 +79,7 @@ public class AdminServlet extends HttpServlet {
                  request.setAttribute("eventList", eventList);
         		RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
         		dispatcher.forward(request, response);
-				//insertEvent(request,response);
+				
 			} 
 			catch (IOException e) {
 				e.printStackTrace();

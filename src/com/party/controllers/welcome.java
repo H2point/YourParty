@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.party.dao.EvenementDao;
+import com.party.dao.ReservationDao;
 import com.party.models.Evenement;
 
 /**
@@ -23,11 +24,18 @@ public class welcome extends HttpServlet {
 	
 	
 	private EvenementDao evenementDao;
+	private ReservationDao reservationDao;
 	public void init() {
+		reservationDao = new ReservationDao();
 		evenementDao = new EvenementDao();
 	}
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<String> listDates = new ArrayList<String>();
+		listDates = reservationDao.getListDateReservations();
+		System.out.println("hellooooooooooooooooooooooooooo");
+		request.setAttribute( "listDates", listDates);
+		
 		List<Evenement> evenementList = new ArrayList();
         evenementList = evenementDao.AfficherEvenement();
         request.setAttribute("evenementList", evenementList);

@@ -13,9 +13,9 @@
     <section class="ftco-section ftco-services container">
     	<div class="container">
     	<div class="row">
-    	<%-- <% List<String> listNames = (List<String>)request.getAttribute("evenementNames");
+    	<% List<String> listNames = (List<String>)request.getAttribute("evenementNames");
     		int i = 0;
-    	%> --%>
+    	%> 
     	<c:forEach items="${eventList}" var="e">
    
           <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
@@ -29,8 +29,9 @@
               	<input id="${e.id}/nbr_personne" value="${e.nbr_personne}" type="hidden">
               	<input id="${e.id}/price" value="${e.price}" type="hidden">
               	<input id="${e.id}/theme" value="${e.id_evenement}" type="hidden">
-                <h3 class="heading">Offre : ${e.theme}</h3>
-                <%-- <% i++; %> --%>
+                
+                <h3 class="heading">Offre : <%=listNames.get(i) %></h3>
+                <% i++; %> 
                 <h3 class="heading">Nombre de personnes :${e.nbr_personne}</h3>
                 <h3 class="heading">Prix offre : ${e.price} Dhs</h3>
              

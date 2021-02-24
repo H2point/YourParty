@@ -75,6 +75,7 @@ public class EvenementServlet extends HttpServlet {
             try {
             	String nameEvent = request.getParameter("nameEvent");
             	String description = request.getParameter("description");
+            	Double pricePer10= Double.parseDouble(request.getParameter("pricePer10"));
             	
             	Part part=request.getPart("image");
         		InputStream is=null;
@@ -83,7 +84,7 @@ public class EvenementServlet extends HttpServlet {
         		byte[] data= new byte[is.available()];
         		is.read(data);
             	
-            	Evenement newEvenement = new Evenement(nameEvent, description,data);
+            	Evenement newEvenement = new Evenement(nameEvent, description,data,pricePer10);
             	evenementDao.saveEvent(newEvenement);
             	 List<Evenement> evenementList = new ArrayList();
                  evenementList = evenementDao.AfficherEvenement();

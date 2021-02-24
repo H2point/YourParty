@@ -40,7 +40,7 @@ public class OffreServlet extends HttpServlet {
 		//Récupération des dates résérvées
 		List<String> listDates = new ArrayList<String>();
 		listDates = reservationDao.getListDateReservations();
-		System.out.println(listDates);
+		System.out.println("hellooooooooooooooooooooooooooo");
 		request.setAttribute( "listDates", listDates);
 		
 		//Récupération des offres

@@ -24,8 +24,12 @@
       <input type="text" class="form-control" id="nameEvent" placeholder="name Event" name="nameEvent" >
     </div>
     <div class="form-group">
-      <label for="email">Name Event:</label>
+      <label for="email">Description:</label>
       <input type="text" style="height:100px !important" class="form-control" placeholder="Description" name="description" >
+    </div>
+    <div class="form-group">
+      <label for="email">Price per 10 people:</label>
+      <input type="text" class="form-control" id="nameEvent" placeholder="pricePer10" name="pricePer10" >
     </div>
      
    
