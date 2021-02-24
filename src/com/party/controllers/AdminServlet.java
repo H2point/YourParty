@@ -20,6 +20,8 @@ import javax.servlet.http.Part;
 import org.hibernate.Session;
 
 import com.party.dao.AdminDao;
+import com.party.dao.EvenementDao;
+import com.party.models.Evenement;
 import com.party.models.Event;
 import com.party.util.HibernateUtil;
 
@@ -29,7 +31,7 @@ import com.party.util.HibernateUtil;
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AdminDao adminDao;
-	
+	private EvenementDao evenementDao;
 	Event event=new Event();
 	
 	public void init() {
@@ -48,7 +50,13 @@ public class AdminServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
             rd.forward(request, response);
         }  
-		
+		if(request.getParameter("addOffer")!=null){
+            List<Evenement> evenementList = new ArrayList();
+            evenementList = adminDao.AfficherEvenement();
+            request.setAttribute("evenementList", evenementList);
+            RequestDispatcher rd = request.getRequestDispatcher("addOffre.jsp");
+            rd.forward(request, response);
+        }
 		
 	
 	}

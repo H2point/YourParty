@@ -21,7 +21,7 @@ import com.party.models.Evenement;
 import com.party.models.Event;
 
 
-@WebServlet("/EvenementServlet")
+@WebServlet("/Event")
 @MultipartConfig
 public class EvenementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,13 +42,7 @@ public class EvenementServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("listEvenementAdmin.jsp");
             rd.forward(request, response);
         }
-		if(request.getParameter("addOffer")!=null){
-            List<Evenement> evenementList = new ArrayList();
-            evenementList = evenementDao.AfficherEvenement();
-            request.setAttribute("evenementList", evenementList);
-            RequestDispatcher rd = request.getRequestDispatcher("addOffre.jsp");
-            rd.forward(request, response);
-        }
+		
 		
 		if(request.getParameter("afficherUnEventIndex")!=null){
 			

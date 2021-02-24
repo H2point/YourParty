@@ -18,7 +18,7 @@
 
 <div class="container">
   <h1>ADD EVENT INFOS</h1>
-  <form action="EvenementServlet" method="POST" enctype="multipart/form-data">
+  <form action="Event" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="email">Name Event:</label>
       <input type="text" class="form-control" id="nameEvent" placeholder="name Event" name="nameEvent" >

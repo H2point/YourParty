@@ -28,23 +28,21 @@
 <button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">List offers</button>
   <hr/>
  </form>
+  <form action="Offre" method="get">
+<button  name="addOffer" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Add Offer</button>
+
+ </form>
+
+  <hr>
  <form action="Paiement" method="get">
 <button  value="AfficherEvent" name="listPayment" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Transactions</button>
   <hr>
  </form>
  
- <form action="EvenementServlet" method="get">
-<button  name="addOffer" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Add Offer</button>
 
- </form>
- 
- 
-  <!-- <a type="button"  href="addOffre.jsp">Add Offer</a> -->
-  
-  <hr>
 
   
-  <form action="EvenementServlet" method="get">
+  <form action="Event" method="get">
 <button  value="AfficherEvenement" name="afficherEvenement" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste events</button>
 
  </form>

@@ -88,6 +88,15 @@ public class AdminDao {
 		return evenementList;
 		
 	}
+	public List<Evenement> AfficherEvenement(){		
+		List<Evenement> evenementList = new ArrayList();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Evenement"; //Entity name
+		Query query = session.createQuery(qr);
+		evenementList = query.list();
+		return evenementList;
+		
+	}
 	
 
 
