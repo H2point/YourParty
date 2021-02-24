@@ -16,11 +16,11 @@
 <%@ include file = "sidenav.jsp" %>
 
 <div class="main ">
- <c:forEach items="${eventList}" var="e">
+ <c:forEach items="${eventList}" var="e" >
 <form action="Offre" method="POST">
 <input type="text" class="form-control" id="theme" value="${e.id}" name="id" hidden="true">
 <input type="text" class="form-control" id="theme" value="${e.theme}" name="theme" hidden="true">
-<input type="text" class="form-control" id="theme" value="${e.id_evement}" name="id_evement" hidden="true">
+<input type="text" class="form-control" id="theme" value="${e.id_evenement}" name="id_evenement" hidden="true">
  <%-- <div class="form-group">
     <label for="exampleFormControlSelect1">Theme</label>
     
@@ -38,6 +38,9 @@
       <label for="email">Theme:</label>
       <input type="text" class="form-control" id="theme" value="${e.theme}" name="theme" >
     </div> --%>
+     <div class="form-group">
+     <img src="dataImage?id=${e.id}" width="50px" height="50px" class="img" alt="">
+     </div>
     <div class="form-group">
       <label >Nombre de personnes:</label>
       <input type="text" class="form-control" value="${e.nbr_personne}" name="nbr_personne" >

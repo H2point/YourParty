@@ -107,7 +107,7 @@ public class AdminServlet extends HttpServlet {
         }
 		 if(request.getParameter("modifierEvent")!=null){
              int id = Integer.parseInt(request.getParameter("id"));
-             int idevent= Integer.parseInt(request.getParameter("id_evement"));
+             int idevent= Integer.parseInt(request.getParameter("id_evenement"));
              String theme = request.getParameter("theme");
      		Double price= Double.parseDouble(request.getParameter("price"));
      		int nbr_personne= Integer.parseInt(request.getParameter("nbr_personne"));

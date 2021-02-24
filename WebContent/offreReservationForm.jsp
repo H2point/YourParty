@@ -55,7 +55,9 @@
     var disableDates1 ="<%=listDates%>";
     disableDates1=disableDates1.replace("[", "");
     disableDates1=disableDates1.replace("]", "");
-    var disableDates2 = disableDates1.split(",", '<%=1%>');
+    var disableDates2 = disableDates1.split(",", '<%=listDates.size()%>');
+    console.log("<%=listDates.size()%>");
+    console.log("<%=listDates.size()%>");
     for (var i in disableDates2){
    	  disableDates2[i]=disableDates2[i].replace(" ", "")
    	}

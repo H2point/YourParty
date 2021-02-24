@@ -35,6 +35,7 @@ public class AdminDao {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		Event ev = (Event) session.load(Event.class, id);
+		ev.setId(id);
 		ev.setId_evenement(id_evenement);
 		ev.setTheme(theme);
 		ev.setNbr_personne(nbr_personne);

@@ -40,6 +40,7 @@ public class OffreServlet extends HttpServlet {
 		//Récupération des dates résérvées
 		List<String> listDates = new ArrayList<String>();
 		listDates = reservationDao.getListDateReservations();
+		System.out.println(listDates);
 		request.setAttribute( "listDates", listDates);
 		
 		//Récupération des offres
@@ -49,6 +50,7 @@ public class OffreServlet extends HttpServlet {
         for(Event offre : eventList) {
 			/* String name = evenementDao.getNameEvenementByID(offre.getTheme()); */
         	String name = evenementDao.getNameEvenementByID(offre.getId_evenement());
+        	System.out.println(name);
         	evenementNames.add(name);
         }
         request.setAttribute("eventList", eventList);
