@@ -1,6 +1,7 @@
 package com.party.dao;
 
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -55,6 +56,13 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	public User getUserByID(int id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM User where id = " + id;
+		Query query = session.createQuery(qr);
+		User user = (User) query.uniqueResult();
+		return user;
 	}
 	
 	

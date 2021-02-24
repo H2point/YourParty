@@ -32,6 +32,7 @@ public class PaimentServlet extends HttpServlet {
 	
 	
 	Evenement evenement=new Evenement();
+	Paiement pay=new  Paiement();
     
 	public void init() {
 		paiementDao = new PaiementDao();
@@ -56,6 +57,16 @@ public class PaimentServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("listPayment.jsp");
             rd.forward(request, response);
         }
+		if(request.getParameter("deletePayment")!=null){
+            int idx = Integer.parseInt(request.getParameter("id"));
+            pay.setId_paiement(idx);
+            paiementDao.deletePayment(pay);
+            List<Paiement> paymentList = new ArrayList();
+            paymentList = paiementDao.AfficherPayment();
+            request.setAttribute("paymentList", paymentList);
+            RequestDispatcher rd = request.getRequestDispatcher("listPayment.jsp");
+            rd.forward(request, response);
+         } 
 	}
 
 	

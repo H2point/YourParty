@@ -23,6 +23,9 @@ public class Event implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@Column(name = "id_evenement")
+	private int id_evenement;
+	
 	@Column(name = "theme")
 	private String theme;
 	
@@ -37,6 +40,29 @@ public class Event implements Serializable {
 	private byte[] image;
 
 
+	
+	
+
+	public Event(int id_evement, String theme, double price, int nbr_personne, byte[] image) {
+		super();
+		this.id_evenement = id_evement;
+		this.theme = theme;
+		this.price = price;
+		this.nbr_personne = nbr_personne;
+		this.image = image;
+	}
+
+
+	public Event(int id, int id_evement, String theme, double price, int nbr_personne, byte[] image) {
+		super();
+		this.id = id;
+		this.id_evenement = id_evement;
+		this.theme = theme;
+		this.price = price;
+		this.nbr_personne = nbr_personne;
+		this.image = image;
+	}
+
 
 	public byte[] getImage() {
 		return image;
@@ -48,8 +74,24 @@ public class Event implements Serializable {
 	}
 	
 	
+	public int getId_evenement() {
+		return id_evenement;
+	}
 
-	
+
+	public void setId_evenement(int id_evenement) {
+		this.id_evenement = id_evenement;
+	}
+
+
+	public String getTheme() {
+		return theme;
+	}
+
+
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
 
 
 	public Event() {
@@ -57,14 +99,11 @@ public class Event implements Serializable {
 	}
 
 
-	public Event(String theme, double price, int nbr_personne, byte[] image) {
-		super();
-		this.theme = theme;
-		this.price = price;
-		this.nbr_personne = nbr_personne;
-		this.image = image;
-	}
-
+	/*
+	 * public Event(int theme, double price, int nbr_personne, byte[] image) {
+	 * super(); this.theme = theme; this.price = price; this.nbr_personne =
+	 * nbr_personne; this.image = image; }
+	 */
 
 	public int getId() {
 		return id;
@@ -76,13 +115,10 @@ public class Event implements Serializable {
 	}
 
 
-	public String getTheme() {
-		return theme;
-	}
+	
 
-	public void setTheme(String theme) {
-		this.theme = theme;
-	}
+	
+
 
 	public double getPrice() {
 		return price;

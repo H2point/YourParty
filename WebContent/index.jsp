@@ -12,14 +12,14 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate">
-          	<h2 class="subheading">Welcome to Party organisation</h2>
+          	<h2 class="subheading">Welcome to Party Set Up</h2>
           	<h1 class="mb-4">Let us help you set you perfect party</h1>
             
-            <form action="AdminServlet" method="POST">
+            <form action="Offre" method="POST">
 			<button  value="AfficherEvent" name="afficherEventUser" type="submit" data-toggle="tooltip" title="" style="background:red;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
 			  
 			 </form>
-			 <hr>
+			 <br>
             
             <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
           </div>
@@ -58,7 +58,7 @@
 	</div>
 </section>
   
-    <section class="ftco-section bg-light">
+    <!-- <section class="ftco-section bg-light">
 			<div class="container">
 				<div class="row no-gutters">
 					<div class="col-md-6 wrap-about">
@@ -153,7 +153,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		
 		<section class="ftco-intro" style="background-image: url(images/baby_shower.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>

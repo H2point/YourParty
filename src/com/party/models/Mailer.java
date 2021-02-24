@@ -10,7 +10,7 @@ import javax.mail.internet.MimeMessage;
 public class Mailer {
 	public static void send(String to,String subject,String msg){  
 		  
-		final String user="partycontact3@gmail.com";
+		final String admin="partycontact3@gmail.com";
 		final String pass="projetjee";
 		  
 		 
@@ -24,14 +24,14 @@ public class Mailer {
 		Session session = Session.getDefaultInstance(props,  
 		 new javax.mail.Authenticator() {  
 		  protected PasswordAuthentication getPasswordAuthentication() {  
-		   return new PasswordAuthentication(user,pass);  
+		   return new PasswordAuthentication(admin,pass);  
 		   }  
 		});  
 		//2nd step)compose message  
 		try {  
 			
 		 MimeMessage message = new MimeMessage(session);  
-		 message.setFrom(new InternetAddress(user));  
+		 message.setFrom(new InternetAddress(admin));  
 		 message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));  
 		 message.setSubject(subject);  
 		 message.setText(msg);  

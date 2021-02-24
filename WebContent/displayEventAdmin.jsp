@@ -27,17 +27,18 @@
         <th>Delete</th>
       </tr>
     </thead>
-    
+   
     <tbody>
     <c:forEach items="${eventList}" var="e">
       <tr>
+    
         <td>${e.theme}</td>
         <td>${e.nbr_personne}</td>
         <td>${e.price} </td>
         <td><img src="dataImage?id=${e.id}" width="60px" height="60px"/> </td>
         
         <td>
-         <form action="AdminServlet" method="POST">
+         <form action="Offre" method="POST">
          <div class="form-group">
              <input name="id" type="hidden" class="form-control" value="${e.id}">
              </div>
@@ -46,9 +47,9 @@
 		</form>  
         </td>
         <td>
-         <form action="AdminServlet" method="POST">
+         <form action="Offre" method="POST">
          <div class="form-group">
-             <input name="id" type="hidden" class="form-control" value="${e.id}">
+             <input name="idx" type="hidden" class="form-control" value="${e.id}">
           </div>
            
              <button name="supprimerEvent" style="border: none;background:transparent;" data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" style="font-size:20px;color:red" aria-hidden="true"></i></button></a>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
 
 <div class="container">
   <h1>ADD EVENT INFOS</h1>
-  <form action="AdminServlet" method="post" enctype="multipart/form-data">
+  <form action="Offre" method="post" enctype="multipart/form-data">
     <!-- <div class="form-group">
       <label for="email">Theme:</label>
       <input type="text" class="form-control" id="theme" placeholder="theme" name="theme" >
@@ -29,12 +30,13 @@
      
     <div class="form-group">
     <label for="exampleFormControlSelect1">Theme</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="theme">
-      <option>Birthday</option>
-      <option>Baby Shower</option>
-      <option>Gender Reveal Party</option>
-      <option>Wedding Party</option>
-      <option>Graduation Party</option>
+   <%-- <input type="text" class="form-control" value="${ev.nameEvent}" >value="${ev.id_event}" --%>
+     <select class="form-control" id="exampleFormControlSelect1" name="idevent">
+    
+    <c:forEach items="${evenementList}" var="ev">
+    <option  value="${ev.id_event}">${ev.nameEvent}</option>
+       </c:forEach>
+  
     </select>
   </div>
     <div class="form-group">

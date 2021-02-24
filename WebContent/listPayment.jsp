@@ -27,29 +27,21 @@
     </thead>
     
     <tbody>
-    <c:forEach items="${eventList}" var="e">
+    <c:forEach items="${paymentList}" var="p">
       <tr>
-        <td>${e.theme}</td>
-        <td>${e.nbr_personne}</td>
-        <td>${e.price} </td>
-        <td><img src="dataImage?id=${e.id}" width="60px" height="60px"/> </td>
+        <td>${p.ownerCard}</td>
+        <td>${p.evenementName}</td>
+        <td>${p.total} </td>
+        
+        
         
         <td>
-         <form action="AdminServlet" method="POST">
+         <form action="Paiement" method="GET">
          <div class="form-group">
-             <input name="id" type="hidden" class="form-control" value="${e.id}">
-             </div>
-             <button value="" style="border: none;background:transparent;" name="afficherUnEvent" type="submit" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" style="font-size:20px" aria-hidden="true"></i></button>
-            
-		</form>  
-        </td>
-        <td>
-         <form action="AdminServlet" method="POST">
-         <div class="form-group">
-             <input name="id" type="hidden" class="form-control" value="${e.id}">
+             <input name="id" type="hidden" class="form-control" value="${p.id_paiement}">
           </div>
            
-             <button name="supprimerEvent" style="border: none;background:transparent;" data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" style="font-size:20px;color:red" aria-hidden="true"></i></button></a>
+             <button name="deletePayment" style="border: none;background:transparent;" data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" style="font-size:20px;color:red" aria-hidden="true"></i></button></a>
 		</form>  
         </td>
       </tr>      

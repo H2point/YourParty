@@ -35,20 +35,20 @@
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				<input type="text" class="form-control" name="first_name" placeholder="First Name" required="required">
+				<input type="text" class="form-control" name="first_name" placeholder="First Name" required>
 			</div>
         </div>
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				<input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">
+				<input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
 			</div>
         </div>
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
 				
-				<input id="myuser" type="text" class="form-control" name="username" placeholder="Username" required="required">
+				<input id="myuser" type="text" class="form-control" name="username" placeholder="Username" required>
 			
 				<span id="result"></span>
 			</div>
@@ -56,18 +56,18 @@
         <div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-				<input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
+				<input type="email" class="form-control" name="email" placeholder="Email Address" required>
 			</div>
         </div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input type="text" class="form-control" name="password" placeholder="Password" required="required">
+				<input  type="password"  class="form-control" name="password" placeholder="Password" required>
 			</div>
         </div>
 		     
 		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+            <button id="signup" type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
         </div>
 		<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
     </form>
@@ -79,6 +79,7 @@
 
 $(document).ready(function(){
 	$('#myuser').change(function(){
+		
 		var myuser= $('#myuser').val();
 		$.ajax({
 			type:'POST',
@@ -87,16 +88,19 @@ $(document).ready(function(){
 			success:function(result){
 				result:$('#result').html(result);
 				if(result=="username valid")
-				{
-					 $('#result').removeClass('error')
+				{$('#result').removeClass('error')
 				    $('#result').addClass('success');
-				    
+					document.getElementById("signup").disabled = false;
+					 
+					
 				   
 				}
 				else
-				{
-					$('#result').removeClass('success')
+				{$('#result').removeClass('success')
 				    $('#result').addClass('error');
+					document.getElementById("signup").disabled = true;
+					
+					
 				}
 				
 				

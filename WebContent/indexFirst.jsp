@@ -13,7 +13,7 @@
           <div class="col-md-7 ftco-animate">
           	<h2 class="subheading">Welcome to Party organisation</h2>
           	<h1 class="mb-4">Let us help you set you perfect party</h1>
-          	<form action="AdminServlet" method="POST">
+          	<form action="Offre" method="POST">
 			<button  value="AfficherEvent" name="afficherEventUser" type="submit" data-toggle="tooltip" title="" style="background:red;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
 			  
 			 </form>

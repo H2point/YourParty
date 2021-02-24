@@ -64,6 +64,14 @@ public class EvenementDao {
 		evenementList = query.list();
 		return evenementList;
 	}
-	
+	public String getNameEvenementByID(int id){		
+		String nameEvenement = " ";
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Evenement where id_event="+id; //Entity name
+		Query query = session.createQuery(qr);
+		Evenement evenement = (Evenement) query.uniqueResult();
+		nameEvenement = evenement.getNameEvent();
+		return nameEvenement;
+	}
 
 }

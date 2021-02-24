@@ -27,7 +27,7 @@
 	    			</thead>
 	    
 	    			<tbody>
-	    				<c:forEach items="${confirmedReservationsList}" var="r">
+	    				<c:forEach items="${finishedReservationsList}" var="r">
 	      					<tr>
 						        <td>${r.idReservation}</td>
 						        <td>${r.idUser}</td>
@@ -37,7 +37,7 @@
 						        	</div>
 						        	<div class="row">
 										<button id="${r.idReservation}" value="${r.adresse}" name="viewOnGoogleMaps" style="border-color: red;background:transparent;" data-toggle="tooltip" title="Trash" type="submit" class="pd-setting-ed" onclick="openGoogleMapsModal(this.id)"><i class="fa fa-map-marker" style="font-size:20px;color:red" aria-hidden="true"></i> View on Google Maps</button>	
-						        		<%@ include file="viewOnGoogleMaps.jsp" %>
+						        		<%@ include file = "viewOnGoogleMaps.jsp" %>
 						        	</div>
 						        </td>
 						        <td>${r.dateReservation}</td>
@@ -65,7 +65,9 @@
 	}
 	</script>
 	<script src="js/googleMaps.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrEQP3EY36MHia17iu39Cc8LB9YFkWV70&callback=initMap&libraries=&v=weekly" async></script>
-      
+	<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrEQP3EY36MHia17iu39Cc8LB9YFkWV70&callback=initMap&libraries=&v=weekly"
+      async>
+	</script>
 </body>
 </html>

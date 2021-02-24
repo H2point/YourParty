@@ -42,6 +42,13 @@ public class EvenementServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("listEvenementAdmin.jsp");
             rd.forward(request, response);
         }
+		if(request.getParameter("addOffer")!=null){
+            List<Evenement> evenementList = new ArrayList();
+            evenementList = evenementDao.AfficherEvenement();
+            request.setAttribute("evenementList", evenementList);
+            RequestDispatcher rd = request.getRequestDispatcher("addOffre.jsp");
+            rd.forward(request, response);
+        }
 		
 		if(request.getParameter("afficherUnEventIndex")!=null){
 			
@@ -59,29 +66,7 @@ public class EvenementServlet extends HttpServlet {
             	System.out.println(e);
             }
         }
-		/*if(request.getParameter("addEvenement")!=null){
-            try {
-            	String nameEvent = request.getParameter("nameEvent");
-            	String description = request.getParameter("description");
-            	
-            	Part part=request.getPart("image");
-        		InputStream is=null;
-        		if(part!=null)
-        			is=part.getInputStream();
-        		byte[] data= new byte[is.available()];
-        		is.read(data);
-            	
-            	Evenement newEvenement = new Evenement( nameEvent, description,data);
-            	evenementDao.saveEvent(newEvenement);
-        		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        		dispatcher.forward(request, response);
-            	
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (ServletException e) {
-				e.printStackTrace();
-			}
-        }*/
+	
 	}
 
 	
@@ -100,7 +85,10 @@ public class EvenementServlet extends HttpServlet {
             	
             	Evenement newEvenement = new Evenement(nameEvent, description,data);
             	evenementDao.saveEvent(newEvenement);
-        		RequestDispatcher dispatcher = request.getRequestDispatcher("adminPanel.jsp");
+            	 List<Evenement> evenementList = new ArrayList();
+                 evenementList = evenementDao.AfficherEvenement();
+                 request.setAttribute("evenementList", evenementList);
+        		RequestDispatcher dispatcher = request.getRequestDispatcher("listEvenementAdmin.jsp");
         		dispatcher.forward(request, response);
             	
 			} catch (IOException e) {
@@ -108,19 +96,15 @@ public class EvenementServlet extends HttpServlet {
 			} catch (ServletException e) {
 				e.printStackTrace();
 			}
-        }/*
-		if(request.getParameter("afficherEvenement")!=null){
-            List<Evenement> evenementList = new ArrayList();
-            evenementList = evenementDao.AfficherEvenement();
-            request.setAttribute("evenementList", evenementList);
-            RequestDispatcher rd = request.getRequestDispatcher("listEvenementAdmin.jsp");
-            rd.forward(request, response);
-        }*/
+        }
 		
 		if(request.getParameter("supprimerEvenement")!=null){
             int id_event = Integer.parseInt(request.getParameter("id_event"));
             evenement.setId_event(id_event);
             evenementDao.supprimerEvenement(evenement);
+            List<Evenement> evenementList = new ArrayList();
+            evenementList = evenementDao.AfficherEvenement();
+            request.setAttribute("evenementList", evenementList);
             RequestDispatcher rd = request.getRequestDispatcher("listEvenementAdmin.jsp");
             rd.forward(request, response);
          } 

@@ -45,6 +45,10 @@ public class Paiement{
 		this.total = total;
 	}
 
+	public Paiement() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId_paiement() {
 		return id_paiement;
 	}
