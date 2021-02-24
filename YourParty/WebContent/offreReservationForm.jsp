@@ -9,7 +9,7 @@
 	       			<span aria-hidden="true">&times;</span>
 	       		</button>
 	   		</div>
-	   		<form action="offers" method="post" id="offre-form">
+	   		<form action="offers" method="post" id="offre-form-${e.id}">
 	   			<% List<String> listDates = (List<String>)request.getAttribute("listDates"); %>
 	   			<div class="modal-body">
 	   				<div class="row my-3 text-center" hidden>
@@ -55,6 +55,7 @@
     var disableDates1 ="<%=listDates%>";
     disableDates1=disableDates1.replace("[", "");
     disableDates1=disableDates1.replace("]", "");
+    console.log("<%=listDates.size()%>");
     var disableDates2 = disableDates1.split(",", '<%=listDates.size()%>');
     for (var i in disableDates2){
    	  disableDates2[i]=disableDates2[i].replace(" ", "")
@@ -78,7 +79,7 @@
         //container: '.datepicker'
     });
     
-    $(document).on("submit", "#offre-form", function(event) {
+    $(document).on("submit", "#offre-form-${e.id}", function(event) {
 	    var $form = $(this);
 
 	    $.post($form.attr("post"), $form.serialize(), function(response) {

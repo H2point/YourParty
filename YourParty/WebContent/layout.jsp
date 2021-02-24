@@ -67,8 +67,8 @@
 			            <li class="nav-item dropdown">
 			            	<a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp; Account</a>
 			            	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					          <a class="dropdown-item" href="#">View Account</a>
-					          <a class="dropdown-item" href="YourReservations">View reservations</a>
+					          <a class="dropdown-item" href="AccountServlet">View Account</a>
+					          <a class="dropdown-item" href="MyReservations">View reservations</a>
 					        </div>
 						</li>
 						<li class="nav-item">

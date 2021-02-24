@@ -9,7 +9,7 @@
 	       			<span aria-hidden="true">&times;</span>
 	       		</button>
 	   		</div>
-	   		<form action="<%=request.getContextPath()%>/home" method="post">
+	   		<form action="authorize_payment" method="post">
 	   			<% List<String> listDates = (List<String>)request.getAttribute("listDates"); %>
 	   			<div class="modal-body">
 	   				<div class="row my-3 text-center" hidden>

@@ -65,5 +65,32 @@ public class UserDao {
 		User user = (User) query.uniqueResult();
 		return user;
 	}
+	
+	public void updateAUser(int id,String first_name,String last_name,String email,String password) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		User user = (User) session.load(User.class, id);
+		user.setId(id);
+		user.setFirst_name(first_name);
+		user.setLast_name(last_name);
+		user.setPassword(password);
+		user.setUsername(user.getUsername());
+		user.setEmail(email);
+	
+		//session.merge(user);
+		session.update(user);
+		//session.flush();
+		transaction.commit();
+		session.close();			
+	}
+	/*public List<User> AfficherProfilePicture(String username){		
+		List<User> profilepictureList = new ArrayList();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM User where username="+"'"+username+"'"; //Entity name
+		Query query = session.createQuery(qr);
+		profilepictureList = query.list();
+		return profilepictureList;
+		
+	}*/
 
 }

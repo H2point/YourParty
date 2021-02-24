@@ -75,7 +75,7 @@ public class OffreServlet extends HttpServlet {
 			
 			Reservation reservation = new Reservation(idUser, idEvent, dateEvent, nbrPersonnes, adresse, prixReservation, 1);
 			reservationDao.saveReservation(reservation);
-			
+			//response.sendRedirect("offers");
 		}
 		else {
 			response.sendRedirect("login");

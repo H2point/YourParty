@@ -13,10 +13,6 @@ import javax.persistence.Table;
 @Entity
 @Table( name = "evenement")
 public class Evenement implements Serializable{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -31,17 +27,17 @@ public class Evenement implements Serializable{
 	
 	@Lob
 	@Column(name = "theme_image")
-	private byte[] theme_image;
+	private byte[] image;
 	
 	@Column(name = "pricePer10")
 	private double pricePer10;
 
-	public Evenement(int id_event, String nameEvent, String description, byte[] theme_image, double pricePer10) {
+	public Evenement(int id_event, String nameEvent, String description, byte[] image, double pricePer10) {
 		super();
 		this.id_event = id_event;
 		this.nameEvent = nameEvent;
 		this.description = description;
-		this.theme_image = theme_image;
+		this.image = image;
 		this.pricePer10 = pricePer10;
 	}
 	
@@ -73,12 +69,12 @@ public class Evenement implements Serializable{
 		this.description = description;
 	}
 
-	public byte[] getTheme_image() {
-		return theme_image;
+	public byte[] getImage() {
+		return image;
 	}
 
-	public void setTheme_image(byte[] theme_image) {
-		this.theme_image = theme_image;
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	public double getPricePer10() {
