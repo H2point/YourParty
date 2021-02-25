@@ -17,6 +17,9 @@
 		        			<label class="col-form-label col-form-label-sm" for="inputSmall">ID Event</label>
 							<input id="id-event" class="form-control form-control-sm" type="text" id="inputSmall" name="id-event">
 						</div>
+						<div class="col-md-6">
+							<input class="form-control form-control-sm" id="event-name" name="event-name" hidden>
+						</div>
 					</div>
 	   				<div class="row my-3 text-center">
 	   					<div class="col-md-6">

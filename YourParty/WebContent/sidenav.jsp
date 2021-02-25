@@ -32,7 +32,7 @@
 			<hr>
 			<hr>
 			<form action="Paiement" method="get">
-				<button  value="AfficherEvent" name="listPayment" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Transactions</button>
+				<button  value="listPayment" name="listPayment" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Transactions</button>
 				<hr>
 			</form>
 		  	<hr>

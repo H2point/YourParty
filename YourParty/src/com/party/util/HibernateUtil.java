@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import com.party.models.Evenement;
 import com.party.models.Event;
+import com.party.models.Paiement;
 import com.party.models.User;
 import com.party.models.Reservation;
 
@@ -45,6 +46,7 @@ public class HibernateUtil {
 				configuration.addAnnotatedClass(Event.class);
 				configuration.addAnnotatedClass(Reservation.class);
 				configuration.addAnnotatedClass(Evenement.class);
+				configuration.addAnnotatedClass(Paiement.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();

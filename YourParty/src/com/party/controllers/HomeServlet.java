@@ -42,33 +42,4 @@ public class HomeServlet extends HttpServlet {
 		this.getServletContext().getRequestDispatcher( "/index.jsp" ).forward( request, response );
 		
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
-		if(request.getParameter("reservation-details")!=null) {
-			//addReservation(request, response);
-		}
-	}
-	
-	private void addReservation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getSession().getAttribute("id") != null) {
-			HttpSession session = request.getSession(true);
-			int idUser = (Integer)session.getAttribute("id");
-			int idEvent = Integer.parseInt(request.getParameter("id-event"));
-			String dateEvent = request.getParameter("date-input");
-			int nbrPersonnes = Integer.parseInt(request.getParameter("nbr-people-input"));
-			String adresse = request.getParameter("address-input");
-			double prixReservation = Double.parseDouble(request.getParameter("price-reservation-input"));
-			
-			Reservation reservation = new Reservation(idUser, idEvent, dateEvent, nbrPersonnes, adresse, prixReservation, 1);
-			reservationDao.saveReservation(reservation);
-			//this.getServletContext().getRequestDispatcher( "/index.jsp" ).forward( request, response );
-			response.sendRedirect("home");
-		}
-		else {
-			response.sendRedirect("login");
-		}
-		
-	}
-	
 }

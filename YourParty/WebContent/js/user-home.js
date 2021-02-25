@@ -11,6 +11,8 @@ function openReservationForm(clicked) {
 	document.getElementById("nbr-people").value = "10";
 	document.getElementById("price-reservation").value = document.getElementById(clicked+"/pricePer10").value;
 	document.getElementById("reservation-form-title").innerHTML = "Make a reservation for a " + document.getElementById(clicked+"/nameEvent").value;
+	document.getElementById("event-name").value = document.getElementById(clicked+"/nameEvent").value;
+	console.log(document.getElementById("event-name").value);
 	document.getElementById("reservation-form").style.display = "block";
 	document.getElementById("id-event").readOnly = true;	
 	document.getElementById("price-reservation").readOnly = true;

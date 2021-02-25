@@ -37,6 +37,7 @@ public class ExecutePaymentServlet extends HttpServlet {
             request.setAttribute("transaction", transaction);
             
             AuthorizePaymentServlet.addReservation(request);
+            PaimentServlet.addPayment(request);
  
             request.getRequestDispatcher("merci.jsp").forward(request, response);
              
