@@ -91,29 +91,28 @@ public class UserDao {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		User user = (User) session.load(User.class, id);
-		String fn = user.getFirst_name();
+		/*String fn = user.getFirst_name();
 		String ln = user.getLast_name();
 		String email = user.getEmail();
 		String password = user.getPassword();
 		String username = user.getUsername();
-		session.delete(user);
-		User u = new User();
-		u.setId(id);
-		u.setFirst_name(fn);
+		session.delete(user);*/
+		//User u = new User();
+		user.setId(id);
+		/*u.setFirst_name(fn);
 		u.setLast_name(ln);
 		u.setUsername(username);
 		u.setEmail(email);
-		u.setPassword(password);
-		u.setUser_image(user_image);
-		session.save(u);
+		u.setPassword(password);*/
+		user.setUser_image(user_image);
+		//session.save(u);
 		
-		//user.setId(id);
-		//user.setUser_image(user_image);
+		
 		//session.saveOrUpdate(user);
 
 	    //session.flush();
 		//session.merge(user);
-		//session.update(user);
+		session.update(user);
 		//session.flush();
 		transaction.commit();
 		session.close();			

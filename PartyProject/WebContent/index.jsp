@@ -118,7 +118,7 @@
                
     			
     			 <form action="EvenementServlet" method="GET">
-     						<input name="nom" type="hidden" value="Baby shower">
+     						<input name="nom" type="hidden" value="Baby Shower">
 							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
   							<hr>
  				</form>
@@ -149,12 +149,46 @@
                 <h3 class="heading">Wedding party</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
                 <form action="EvenementServlet" method="GET">
-     						<input name="nom" type="hidden" value="Wedding">
+     						<input name="nom" type="hidden" value="Wedding Party">
 							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
   							<hr>
  				</form>
               </div>
             </div>      
+          </div>
+          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block services-wrap text-center">
+              <div class="img" style="background-image: url(images/gender-reveal.jpg);"></div>
+              <div class="media-body py-4 px-3">
+                <h3 class="heading">Gender Reveal Party</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                
+  				
+    			  <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="Gender Reveal Party">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 				</form>
+    			
+              </div>
+            </div>    
+          </div>
+           <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block services-wrap text-center">
+              <div class="img" style="background-image: url(images/grad.jpg);"></div>
+              <div class="media-body py-4 px-3">
+                <h3 class="heading">Graduation Party</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                
+  				
+    			  <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="Graduation Party">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 				</form>
+    			
+              </div>
+            </div>    
           </div>
           
         </div>
@@ -346,8 +380,8 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-	<p>Message:
-	<%= session.getAttribute("username")%> ITS ME<%= session.getAttribute("idUser")%>yeah it's me</p>
+	<!--  <p>Message:-->
+	<!--%= session.getAttribute("username")%ITS ME--><!-- %= session.getAttribute("idUser")% --><!-- yeah it's me</p> -->
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>

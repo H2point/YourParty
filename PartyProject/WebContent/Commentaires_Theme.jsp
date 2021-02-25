@@ -49,7 +49,7 @@
     padding-top: 2px;
     padding-bottom: 2px;
     text-align: center;
-    background-color: #ecb21f;
+    background-color: #4a5054;;
     border-color: #a88734 #9c7e31 #846a29;
     color: black;
     border-width: 1px;
@@ -59,7 +59,7 @@
 }
 
 body {
-    background-color: black
+    background-color: white
 }
 
 #nav-items li a,
@@ -85,8 +85,8 @@ body {
 }
 
 .comment {
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
+    border: #4a5054;
+    background-color: #4a5054;
     float: left;
     border-radius: 5px;
     padding-left: 40px;
@@ -143,8 +143,8 @@ label {
 }
 
 form {
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
+    border: #4a5054;;
+    background-color: #4a5054;;
     border-radius: 5px;
     padding: 20px
 }</style>
@@ -184,7 +184,7 @@ form {
 					   		
 					 		
 					   	</div>
-					   <p>test+<%=i%> +test</p>
+					   <!-- >p--><!--%=i%--> <!--/p> -->
 					  			<a href="EvenementServlet?nom=<%=i%>&afficherUnEventIndex=" class="btn btn-primary">Close Comments</a>
 					</div>
    			

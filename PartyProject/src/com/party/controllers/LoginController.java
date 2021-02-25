@@ -54,11 +54,11 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("username", username);
                 
                 if(username.equals("Admin")) {
-                	RequestDispatcher dispatcher = request.getRequestDispatcher("AdminAccueil");
-    				dispatcher.forward(request, response);
+                	response.sendRedirect("adminHome");
                 }
-				RequestDispatcher dispatcher = request.getRequestDispatcher("home");
-				dispatcher.forward(request, response);
+                else {
+                	response.sendRedirect("home");
+                }
 			}else {
 				throw new Exception("Login not successful..");
 			}

@@ -137,8 +137,12 @@ body {
         
 		 <div class="form-group">
 		 	<div class="input-group">
-		 		<span class="input-group-addon"><i class="fa fa-image"></i></span>
-		 		<input type="file" class="form-control"  name="profilepicture" size="50"/>
+		 		<label class="file">
+		 				<span class="input-group-addon"><i class="fa fa-image"></i></span>
+					  <input type="file" id="file" aria-label="File browser example"  name="profilepicture">
+					  <span class="file-custom"></span>
+					</label>
+							 		
 		 	</div>
 		 </div> 
 		<div class="form-group">

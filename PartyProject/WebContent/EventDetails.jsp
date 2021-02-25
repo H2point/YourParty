@@ -65,7 +65,7 @@
 }
 
 body {
-    background-color: black
+    background-color: #f3f4f7
 }
 
 #nav-items li a,
@@ -89,10 +89,9 @@ body {
     padding-right: 30px;
     padding-top: 10px
 }
-
 .comment {
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
+    border: #4a5054;
+    background-color: #4a5054;
     float: left;
     border-radius: 5px;
     padding-left: 40px;
@@ -114,9 +113,12 @@ body {
     color: rgb(184, 183, 183)
 }
 
-h1,
 h4 {
     color: white;
+    font-weight: bold
+}
+h1 {
+    color: #4f262f;
     font-weight: bold
 }
 
@@ -149,19 +151,19 @@ label {
 }
 
 form {
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
+    border: #4f262f;
+    background-color: #4f262f;
     border-radius: 5px;
     padding: 20px
 }</style>
 </head>
 <body>
 
-<p>Message:
-<%= request.getAttribute("themeGetting")%> ITS ME</p>
+<!--  p>Message:-->
+<!--%= request.getAttribute("themeGetting")%> ITS ME--> <!-- ITS ME</p> -->
 
-		<section class="ftco-section bg-light">
-    	<div class="container">
+		<section class="ftco-section bg-white">
+    	<div class="container" style="background-color:white;border-color:white;">
     	<div class="row no-gutters">
     		
 	         
@@ -192,7 +194,7 @@ form {
            
             	  
          </div>  
-         <div class="col-md-6 wrap-about ftco-animate">
+         <div class="col-md-6 wrap-about ftco-animate" >
 	          <div class="heading-section">
 	          	<div class="pl-md-5">
 		            <h2 class="mb-2">What we offer</h2>
@@ -229,7 +231,7 @@ form {
 		<section>
 		
 		
-    <div class="container">
+    <div class="container bg-light">
         <div class="row">
             	<div class="col-sm-5 col-md-6 col-12 pb-4">
                 <h1>Reviews</h1>
@@ -250,10 +252,10 @@ form {
             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                 <form action="CommentServlet" method="post">
                     <div class="form-group">
-                        <h4>Leave a comment</h4> <label for="message">Message</label> <input name="comment" type="text"  cols="30" rows="5" class="form-control" style="background-color:white;"></input>
+                        <h4>Leave a comment</h4><input name="comment" type="text"  cols="30" rows="5" class="form-control" style="background-color:white;border-color:#4f262f;"></input>
                     </div>
-                    <div class="form-group"> <button type="submit" name="addComment" id="post" class="btn">Post Comment</button> </div>
-                     <div class="form-group"><button type="submit" id="test" name="showComment" class="btn btn-primary">Show all comments</button></div>
+                    <div class="form-group"> <button type="submit" name="addComment"  class="btn btn-dark">Post Comment</button> </div>
+                     <div class="form-group"><button type="submit" id="test" name="showComment" class="btn btn-dark">Show all comments</button></div>
 				</form>
 				
 				 
@@ -334,8 +336,8 @@ form {
 				</div>
 			</div>
 		</footer>
-   	<p>Message:
-	<%= session.getAttribute("username")%> ITS ME<%= session.getAttribute("currentTheme")%>wdjhwejk<%= request.getParameter("nom")%>huyjhjkjk</p>
+   	<!-- p>Message: -->
+	<!-- %= session.getAttribute("username")%> ITS ME --><!-- %= session.getAttribute("currentTheme")%>wdjhwejk --><!-- %= request.getParameter("nom")%>huyjhjkjk</p> -->
 	  <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>

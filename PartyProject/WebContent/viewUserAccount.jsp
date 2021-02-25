@@ -22,7 +22,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: aliceblue
+    background-color: #ffeaf1
 }
 
 .wrapper {
@@ -77,7 +77,7 @@ input[placeholder] {
 
 .form-control:focus {
     box-shadow: none;
-    border: 1.5px solid #0779e4
+    border: 1.5px solid #4f262f
 }
 
 select {
@@ -95,16 +95,18 @@ select:focus {
 
 .button {
     background-color: #fff;
-    color: #0779e4
+    color: #4f262f
 }
 
 .button:hover {
     background-color: #0779e4;
-    color: #fff
+   color: #4f262f
 }
 
 .btn-primary {
-    background-color: #0779e4
+    background-color: #4f262f
+     border: 1.5px solid #4f262f
+     color: #4f262f
 }
 
 .danger {
@@ -136,10 +138,19 @@ select:focus {
 	
     <form action="AccountServlet" method="post" id="profile" enctype="multipart/form-data">
       	<div class="d-flex align-items-start py-3 border-bottom"> <img src="userImage?id_user=${currentUserProfile.id}" class="img" alt="">
-        <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
-            <p>Upload a new profile photo</p><input type="file" class="form-control"  name="profilepictureUpdate" size="30"/>
-		    <button type="submit" name="updateProfilePicture" class="btn btn-primary mr-3"><i class="fa fa-camera"></i></button>
-        </div>
+       
+        <div class="form-group">
+		 	<div class="input-group">
+		 		<label class="file">
+		 		<b>Profile Photo</b>
+		 				<p>Upload a new profile photo</p>
+					  <input type="file" id="file" aria-label="File browser example"  name="profilepictureUpdate">
+					  <span class="file-custom"></span>
+					  <button type="submit" name="updateProfilePicture" class="btn btn-primary" style="background:#4f262f;border-color:#4f262f;color:white;"><i class="fa fa-camera"></i></button>
+					</label>
+							 		
+		 	</div>
+		 </div>
     </div> 
 
     </form>
@@ -167,7 +178,7 @@ select:focus {
     </div>
     <div class="py-2 ">
        
-        	<div class="py-3 pb-4 "> <button type="submit" name="updateProfileUser" class="btn btn-primary mr-3">Save Changes</button> </div>
+        	<div class="py-3 pb-4 "> <button type="submit" name="updateProfileUser" class="btn btn-primary" style="background:#4f262f;border-color:#4f262f;color:white;">Save Changes</button> </div>
         
     </div>
     </form>

@@ -58,10 +58,10 @@ public class CommentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		currentTheme = (String) session.getAttribute("currentTheme");
-		idUser = (int) session.getAttribute("idUser");
+		//idUser = (int) session.getAttribute("idUser");
 		// Add A comment
 		if(request.getParameter("addComment")!=null){
-				
+			     idUser = (int) session.getAttribute("idUser");
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 			    Date date = new Date(); 
 			    //formatter.format(date)
