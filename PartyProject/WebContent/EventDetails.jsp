@@ -1,6 +1,4 @@
 <%@page import="com.party.models.Evenement"%>
-<%@page import="org.hibernate.Transaction"%>
-<%@page import="org.hibernate.Session"%>
 <%@page import="com.party.util.HibernateUtil"%>
 <%@page import="java.io.*"%>
 <%@page import="java.io.File"%>
@@ -165,10 +163,12 @@ form {
 		<section class="ftco-section bg-light">
     	<div class="container">
     	<div class="row no-gutters">
+    		
+	         
     	<div class="col-md-6 wrap-about">
-    	
+    
     	<c:forEach items="${evenementList}" var="ev">
-   
+   			
           <!-- div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate"> -->
             <!-- div class="d-block services-wrap text-center"> -->
             
@@ -189,10 +189,40 @@ form {
           
           
           </c:forEach> 
-               
-         </div>      
-        </div>
-    	</div>
+           
+            	  
+         </div>  
+         <div class="col-md-6 wrap-about ftco-animate">
+	          <div class="heading-section">
+	          	<div class="pl-md-5">
+		            <h2 class="mb-2">What we offer</h2>
+	            </div>
+	          </div>
+	          <div class="pl-md-5">
+							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+							<div class="row">
+		            
+		            	<c:forEach items="${menuList}" var="m">
+   			
+         						    
+              				<div class="services-2 col-lg-6 d-flex w-100">
+					              <div class="icon d-flex justify-content-center align-items-center">
+					            		<span class="flaticon-diet-1"></span>
+					              </div>
+					              <div class="media-body pl-3">
+					                <h3 class="heading">${m.item_menu}</h3>
+					                <p>${m.description_item_menu}</p>
+					              </div>
+					            </div>  
+         			 </c:forEach> 
+		
+		          </div>  
+						</div>
+					</div>
+				</div>
+			</div>    
+       
+    	
     </section>
   
 		<!-- Comments -->

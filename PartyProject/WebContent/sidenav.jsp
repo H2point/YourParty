@@ -24,17 +24,58 @@
 <body>
 <div class="sidenav">
  <br><br><br><br>
-<form action="AdminServlet" method="POST">
-<button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste events</button>
-  <hr>
-   <a type="button" href="addEvent.jsp">Ajouter event</a>
+<form action="Offre" method="get">
+<button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">List offers</button>
+  <hr/>
  </form>
-  
-  <hr>
+  <form action="Offre" method="get">
+<button  name="addOffer" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Add Offer</button>
+
+ </form>
 
   <hr>
-  <a href="#">View reservations</a>
-    <hr>
+ <form action="Paiement" method="get">
+<button  value="AfficherEvent" name="listPayment" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Transactions</button>
+  <hr>
+ </form>
+ 
+
+
+  
+  <form action="Event" method="get">
+<button  value="AfficherEvenement" name="afficherEvenement" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste events</button>
+
+ </form>
+
+
+  <hr>
+  <a type="button" href="addEvenement.jsp">Add Event</a>
+  
+  <hr>
+  <form action="Reservations" method="POST">
+				<button  value="viewPendingReservations" name="viewPendingReservations" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">View Pending Reservations</button>
+			</form>
+			<hr>
+		    <form action="Reservations" method="POST">
+				<button  value="viewFinishedReservations" name="viewFinishedReservations" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">View Finished Reservations</button>
+			</form>
+		    <hr>
+		    <hr>
+<form action="MenuAdmin" method="get">
+<button  value="afficherMenus" name="afficherMenus" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">List of Menus</button>
+  <hr/>
+ </form>
+  <form action="MenuAdmin" method="get">
+<button  name="addMenu" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Add a Menu Item</button>
+
+ </form>
+
+  <hr>
+<form action="CommentsAdmin" method="get">
+<button  value="afficherComments" name="afficherComments" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">List of Comments</button>
+  <hr/>
+ </form>
+
   
 </div>
 </body>

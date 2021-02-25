@@ -19,9 +19,11 @@ import javax.servlet.http.Part;
 import com.party.dao.AdminDao;
 import com.party.dao.CommentsDao;
 import com.party.dao.EvenementDao;
+import com.party.dao.MenuDao;
 import com.party.models.Comments;
 import com.party.models.Evenement;
 import com.party.models.Event;
+import com.party.models.Menu;
 
 
 @WebServlet("/EvenementServlet")
@@ -31,11 +33,13 @@ public class EvenementServlet extends HttpServlet {
 	
 	private EvenementDao evenementDao;
 	private CommentsDao commentsDao;
+	private MenuDao menuDao;
 	Evenement evenement=new Evenement();
     
 	public void init() {
 		evenementDao = new EvenementDao();
 		commentsDao = new CommentsDao();
+		menuDao = new MenuDao();
 	}
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +52,8 @@ public class EvenementServlet extends HttpServlet {
         }
 		
 		if(request.getParameter("afficherUnEventIndex")!=null){
+			// Here we get informations+ reviews and menu since they're related to the event
+			// that's why i didn't do it in comments and menu servlet 
 			
             try {
             	 	
@@ -55,12 +61,15 @@ public class EvenementServlet extends HttpServlet {
             request.getSession().setAttribute("currentTheme",name);
             List<Evenement> evenementList = new ArrayList();
             List<Comments> reviewsList = new ArrayList();
+            List<Menu> menuList = new ArrayList();
             evenementList = evenementDao.AfficherUnEventIndex(name);
             reviewsList = commentsDao.showReviews(name);
+            menuList = menuDao.getMenuByTheme(name);
             request.setAttribute("evenementList", evenementList);
             request.setAttribute("reviewsList", reviewsList);
+            request.setAttribute("menuList", menuList);
             RequestDispatcher rd = request.getRequestDispatcher("EventDetails.jsp");
-            request.setAttribute("currentTheme",name); // ce n'est pas repete i should keep it!
+            request.setAttribute("currentTheme",name); // set attribut n'est pas repete we should keep it!
             rd.forward(request, response);
             
             }catch(Exception e){

@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.party.models.Comments;
-
+import com.party.models.Menu;
 import com.party.util.HibernateUtil;
 
 public class CommentsDao {
@@ -30,6 +30,22 @@ public class CommentsDao {
 			}
 			e.printStackTrace();
 		}
+	}
+	public List<Comments> showComments(){		
+		List<Comments> commentsList = new ArrayList();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Comments"; //Entity name
+		Query query = session.createQuery(qr);
+		commentsList = query.list();
+		return commentsList;
+	}
+	public void deleteComment(Comments comment) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();		
+		session.delete(comment);
+        transaction.commit();
+		session.close();	
+
 	}
 	/*public List<Comments> showThemeComments() {
 		Transaction transaction = null;
@@ -53,6 +69,7 @@ public class CommentsDao {
 		}
 		return CommentsList;
 	}*/
+	
 	public void likeComment(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();

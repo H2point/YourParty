@@ -9,6 +9,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 //import org.hibernate.service.ServiceRegistryBuilder;
 import com.party.models.Event;
+import com.party.models.Menu;
 import com.party.models.User;
 import com.party.models.Evenement;
 import com.party.models.Comments;
@@ -41,6 +42,7 @@ private static ServiceRegistry serviceRegistry;
 				configuration.addAnnotatedClass(Event.class);
 				configuration.addAnnotatedClass(Evenement.class);
 				configuration.addAnnotatedClass(Comments.class);
+				configuration.addAnnotatedClass(Menu.class);
 				
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
