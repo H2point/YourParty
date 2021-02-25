@@ -9,7 +9,7 @@
 	       			<span aria-hidden="true">&times;</span>
 	       		</button>
 	   		</div>
-	   		<form action="offers" method="post" id="offre-form-${e.id}">
+	   		<form action="authorize_payment" method="post" id="offre-form-${e.id}">
 	   			<% List<String> listDates = (List<String>)request.getAttribute("listDates"); %>
 	   			<div class="modal-body">
 	   				<div class="row my-3 text-center" hidden>
@@ -17,7 +17,10 @@
 							<input id="offer-id-event" class="form-control form-control-sm" type="text" id="inputSmall" name="id-event" hidden>
 						</div>
 						<div class="col-md-6">
-							<input class="form-control form-control-sm" type="number" id="nbr-people-offer" name="nbr-people-offer" hidden>
+							<input class="form-control form-control-sm" type="number" id="nbr-people-offer" name="nbr-people-input" hidden>
+						</div>
+						<div class="col-md-6">
+							<input class="form-control form-control-sm" id="event-name" name="event-name" hidden>
 						</div>
 					</div>
 	   				<div class="row my-3 text-center">
@@ -79,7 +82,7 @@
         //container: '.datepicker'
     });
     
-    $(document).on("submit", "#offre-form-${e.id}", function(event) {
+    /*$(document).on("submit", "#offre-form-${e.id}", function(event) {
 	    var $form = $(this);
 
 	    $.post($form.attr("post"), $form.serialize(), function(response) {
@@ -88,5 +91,5 @@
 	    });
         
 	    event.preventDefault(); // Important! Prevents submitting the form.
-	});
+	});*/
 </script>

@@ -26,7 +26,6 @@
     	<div class="container">
     		<div class="row">
 	    		<c:forEach items="${evenementList}" var="ev">
-	    			<input id="${ev.id_event}" value="${ev.id_event}" hidden>
 	    			<input id="${ev.id_event}/nameEvent" value="${ev.nameEvent}" hidden>
 	              	<input id="${ev.id_event}/pricePer10" value="${ev.pricePer10}" hidden>
 					<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">

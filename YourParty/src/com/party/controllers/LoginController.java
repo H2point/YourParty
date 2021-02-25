@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("id", id);
 	            
 	            if(username.equals("admin")) {
-	            	response.sendRedirect("AdminServlet");
+	            	response.sendRedirect("adminHome");
                 }
 	            else {
 	            	response.sendRedirect("home");

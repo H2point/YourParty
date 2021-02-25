@@ -32,9 +32,8 @@ public class Evenement implements Serializable{
 	@Column(name = "pricePer10")
 	private double pricePer10;
 
-	public Evenement(int id_event, String nameEvent, String description, byte[] image, double pricePer10) {
+	public Evenement(String nameEvent, String description, byte[] image, double pricePer10) {
 		super();
-		this.id_event = id_event;
 		this.nameEvent = nameEvent;
 		this.description = description;
 		this.image = image;

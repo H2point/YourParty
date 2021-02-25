@@ -44,6 +44,14 @@ public class Event implements Serializable {
 		this.nbr_personne = nbr_personne;
 		this.image = image;
 	}
+	
+	public Event(int theme, double price, int nbr_personne) {
+		super();
+		
+		this.theme = theme;
+		this.price = price;
+		this.nbr_personne = nbr_personne;
+	}
 
 
 	public Event() {

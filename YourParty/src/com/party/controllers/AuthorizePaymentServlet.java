@@ -15,6 +15,7 @@ public class AuthorizePaymentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
     static int idEvent;
+    static String nameEvent;
     static String dateEvent;
     static int nbrPersonnes;
     static String adresse;
@@ -31,32 +32,39 @@ public class AuthorizePaymentServlet extends HttpServlet {
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	//
-    	idEvent = Integer.parseInt(request.getParameter("id-event"));
-    	dateEvent = request.getParameter("date-input");
-		nbrPersonnes = Integer.parseInt(request.getParameter("nbr-people-input"));
-		adresse = request.getParameter("address-input");
-		prixReservation = Double.parseDouble(request.getParameter("price-reservation-input"));
-		//
-        String product = request.getParameter("id-event");
-        String subtotal = request.getParameter("price-reservation-input");
-        String shipping = "0";
-        String tax = "0";
-        String total = request.getParameter("price-reservation-input");
-         
-        OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
- 
-        try {
-            PaymentServices paymentServices = new PaymentServices();
-            String approvalLink = paymentServices.authorizePayment(orderDetail);
- 
-            response.sendRedirect(approvalLink);
-             
-        } catch (PayPalRESTException ex) {
-            request.setAttribute("errorMessage", ex.getMessage());
-            ex.printStackTrace();
-            request.getRequestDispatcher("error.jsp").forward(request, response);
-        }
+    	if(request.getSession().getAttribute("id") != null) {
+	    	//
+	    	idEvent = Integer.parseInt(request.getParameter("id-event"));
+	    	nameEvent = request.getParameter("event-name");
+	    	dateEvent = request.getParameter("date-input");
+			nbrPersonnes = Integer.parseInt(request.getParameter("nbr-people-input"));
+			adresse = request.getParameter("address-input");
+			prixReservation = Double.parseDouble(request.getParameter("price-reservation-input"));
+			//
+	        String product = request.getParameter("event-name");
+	        System.out.println(product);
+	        String subtotal = request.getParameter("price-reservation-input");
+	        String shipping = "0";
+	        String tax = "0";
+	        String total = request.getParameter("price-reservation-input");
+	         
+	        OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
+	 
+	        try {
+	            PaymentServices paymentServices = new PaymentServices();
+	            String approvalLink = paymentServices.authorizePayment(orderDetail);
+	 
+	            response.sendRedirect(approvalLink);
+	             
+	        } catch (PayPalRESTException ex) {
+	            request.setAttribute("errorMessage", ex.getMessage());
+	            ex.printStackTrace();
+	            request.getRequestDispatcher("error.jsp").forward(request, response);
+	        }
+    	}
+    	else {
+			response.sendRedirect("login");
+		}
     }
     
     static void addReservation(HttpServletRequest request) {

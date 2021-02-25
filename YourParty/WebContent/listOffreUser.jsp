@@ -26,6 +26,7 @@
               	<input id="${e.id}/nbr_personne" value="${e.nbr_personne}" hidden>
               	<input id="${e.id}/price" value="${e.price}" hidden>
               	<input id="${e.id}/theme" value="${e.theme}" hidden>
+              	<input id="${e.id}/theme_name" value="<%=listNames.get(i) %>" hidden>
                 <h3 class="heading">Offre : <%=listNames.get(i) %></h3>
                 <% i++; %>
                 <h3 class="heading">Nombre de personnes :${e.nbr_personne}</h3>

@@ -22,18 +22,27 @@
 	<body>
 		<div class="sidenav">
 			<br><br><br><br>
-			<form action="AdminServlet" method="POST">
-				<button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste offres</button>
+			<form action="Offre" method="get">
+				<button  value="AfficherEvent" name="afficherEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Offers List</button>
 		 	</form>
 		 	<hr>
-		  	<a type="button" href="addOffre.jsp">Ajouter une offre</a>
-			<hr>
-			<hr>
-		  	<form action="EvenementServlet" method="POST">
-				<button  value="AfficherEvenement" name="afficherEvenement" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste events</button>
+		 	<form action="Offre" method="get">
+				<button value="AjouterEvent" name="ajouterEvent" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Add an Offer</button>
 		 	</form>
+			<hr>
+			<hr>
+			<form action="Paiement" method="get">
+				<button  value="AfficherEvent" name="listPayment" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Transactions</button>
+				<hr>
+			</form>
 		  	<hr>
-		  	<a type="button" href="addEvenement.jsp">Ajouter un event</a>
+		  	<form action="EvenementServlet" method="get">
+				<button  value="AfficherEvenement" name="afficherEvenement" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Events List</button>
+ 			</form>
+  			<hr>
+  			<form action="EvenementServlet" method="get">
+				<button  value="AjouterEvenement" name="ajouterEvenement" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Add an Event</button>
+ 			</form>		  	
 		  	<hr>
 		  	<hr>
 			<form action="Reservations" method="POST">
