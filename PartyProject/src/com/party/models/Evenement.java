@@ -1,4 +1,9 @@
+
+  
 package com.party.models;
+
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +14,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name = "evenement")
-
-public class Evenement {
+public class Evenement implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,34 +27,24 @@ public class Evenement {
 	@Column(name = "description")
 	private String description;
 	
-
 	@Lob
 	@Column(name = "image")
 	private byte[] image;
+	
+	@Column(name = "pricePer10")
+	private double pricePer10;
 
-
-
-	public byte[] getImage() {
-		return image;
-	}
-
-
-	public void setImage(byte[] image) {
+	public Evenement(String nameEvent, String description, byte[] image, double pricePer10) {
+		super();
+		this.nameEvent = nameEvent;
+		this.description = description;
 		this.image = image;
+		this.pricePer10 = pricePer10;
 	}
 	
-	
-	
-
 	public Evenement() {
 		super();
 	}
-
-	
-	
-
-	
-
 
 	public int getId_event() {
 		return id_event;
@@ -74,14 +69,25 @@ public class Evenement {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	public Evenement(String nameEvent, String description, byte[] image) {
-		super();
-		this.nameEvent = nameEvent;
-		this.description = description;
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	
 
+	public double getPricePer10() {
+		return pricePer10;
+	}
+
+	public void setPricePer10(double pricePer10) {
+		this.pricePer10 = pricePer10;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }

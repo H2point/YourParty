@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-  <%@ include file = "layout.jsp" %>
-    <!-- END nav -->
 
+<%@ include file = "layout.jsp" %>
+<!-- %@ include file = "reservationForm.jsp" %> -->
     <div class="hero-wrap js-fullheight" style="background-image: url('images/glass_crits.jpg'); width: fit-content;" data-stellar-background-ratio="0.2">
       <div class="overlay"></div>
       <div class="container">
@@ -12,188 +13,39 @@
           <div class="col-md-7 ftco-animate">
           	<h2 class="subheading">Welcome to Party organisation</h2>
           	<h1 class="mb-4">Let us help you set you perfect party</h1>
-            <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
+            <p><a href="#" class="btn btn-primary">Learn more</a> <a href="contactUs" class="btn btn-white">Contact us</a></p>
           </div>
         </div>
       </div>
     </div>
-
-    <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
-    	<div class="container">
-	    	<div class="row justify-content-end">
-	    		<div class="col-lg-4">
-						<form action="#" class="appointment-form">
-							<h3 class="mb-3">Book your apartment</h3>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-			    					<input type="text" class="form-control" placeholder="Full Name">
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="ion-md-calendar"></span></div>
-			            		<input type="text" class="form-control appointment_date-check-in" placeholder="Check-In">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="ion-md-calendar"></span></div>
-			            		<input type="text" class="form-control appointment_date-check-out" placeholder="Check-Out">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="form-field">
-	          					<div class="select-wrap">
-	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                      	<option value="">Adults</option>
-	                        <option value="">1</option>
-	                        <option value="">2</option>
-	                        <option value="">3</option>
-	                        <option value="">4</option>
-	                        <option value="">5</option>
-	                      </select>
-	                    </div>
-			              </div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="form-field">
-	          					<div class="select-wrap">
-	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                      	<option value="">Children</option>
-	                        <option value="">1</option>
-	                        <option value="">2</option>
-	                        <option value="">3</option>
-	                        <option value="">4</option>
-	                        <option value="">5</option>
-	                      </select>
-	                    </div>
-			              </div>
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<input type="text" class="form-control" placeholder="Phone number">
-			    				</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="ion-ios-clock"></span></div>
-			            		<input type="text" class="form-control appointment_time" placeholder="Time">
-		            		</div>
-			    				</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-			              <input type="submit" value="Book Appartment Now" class="btn btn-primary py-3 px-4">
-			            </div>
-								</div>
-							</div>
-	    			</form>
-	    		</div>
-	    	</div>
-	    </div>
-    </section>
+    
+    <br><br><br><br><br>
    
-    <section class="ftco-section ftco-services">
+    <section class="ftco-section ftco-services" id="services">
     	<div class="container">
     		<div class="row">
-    		
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/bab_shower.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Baby shower</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-               
-    			
-    			 <form action="EvenementServlet" method="GET">
-     						<input name="nom" type="hidden" value="Baby Shower">
+	    		<c:forEach items="${evenementList}" var="ev">
+	    			<input id="${ev.id_event}/nameEvent" value="${ev.nameEvent}" hidden>
+	              	<input id="${ev.id_event}/pricePer10" value="${ev.pricePer10}" hidden>
+					<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+					  <div class="d-block services-wrap text-center">
+					    <div class="img" style="background-image: url(evenementImage?id=${ev.id_event});"></div>
+					    <div class="media-body py-4 px-3">
+					      <h3 class="heading">${ev.nameEvent}</h3>
+					      <p>${ev.description}</p>
+					      <p><button class="btn btn-primary" onclick="openReservationForm(${ev.id_event})">Reserve</button></p>
+					      
+					       <form action="EvenementServlet" method="GET">
+     						<input name="nom" type="hidden" value="${ev.nameEvent}">
 							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
   							<hr>
- 				</form>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/birthday16.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Birthday party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                
-  				
-    			  <form action="EvenementServlet" method="GET">
-     						<input name="nom" type="hidden" value="Birthday">
-							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
-  							<hr>
- 				</form>
-    			
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/wed_tab.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Wedding party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                <form action="EvenementServlet" method="GET">
-     						<input name="nom" type="hidden" value="Wedding Party">
-							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
-  							<hr>
- 				</form>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/gender-reveal.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Gender Reveal Party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                
-  				
-    			  <form action="EvenementServlet" method="GET">
-     						<input name="nom" type="hidden" value="Gender Reveal Party">
-							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
-  							<hr>
- 				</form>
-    			
-              </div>
-            </div>    
-          </div>
-           <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/grad.jpg);"></div>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">Graduation Party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                
-  				
-    			  <form action="EvenementServlet" method="GET">
-     						<input name="nom" type="hidden" value="Graduation Party">
-							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
-  							<hr>
- 				</form>
-    			
-              </div>
-            </div>    
-          </div>
-          
-        </div>
+ 							</form>
+					    </div>
+					  </div>    
+					</div>
+				</c:forEach>	
+			</div>	
     	</div>
-   
     </section>
   
     <section class="ftco-section bg-light">
@@ -380,8 +232,8 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-	<!--  <p>Message:-->
-	<!--%= session.getAttribute("username")%ITS ME--><!-- %= session.getAttribute("idUser")% --><!-- yeah it's me</p> -->
+
+  
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -398,7 +250,10 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  
+  <script type="text/javascript">
+  	hideStuff();
+  </script>
+
     
   </body>
 </html>

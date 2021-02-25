@@ -93,10 +93,10 @@ public class EvenementServlet extends HttpServlet {
         		byte[] data= new byte[is.available()];
         		is.read(data);
             	
-            	Evenement newEvenement = new Evenement(nameEvent, description,data);
-            	evenementDao.saveEvent(newEvenement);
-        		RequestDispatcher dispatcher = request.getRequestDispatcher("adminPanel.jsp");
-        		dispatcher.forward(request, response);
+            	//Evenement newEvenement = new Evenement(nameEvent, description,data);
+            	//evenementDao.saveEvent(newEvenement);
+        		//RequestDispatcher dispatcher = request.getRequestDispatcher("adminPanel.jsp");
+        		//dispatcher.forward(request, response);
             	
 			} catch (IOException e) {
 				e.printStackTrace();
