@@ -10,6 +10,8 @@ import org.hibernate.service.ServiceRegistry;
 //import org.hibernate.service.ServiceRegistryBuilder;
 import com.party.models.Event;
 import com.party.models.Menu;
+import com.party.models.Paiement;
+import com.party.models.Reservation;
 import com.party.models.User;
 import com.party.models.Evenement;
 import com.party.models.Comments;
@@ -43,7 +45,8 @@ private static ServiceRegistry serviceRegistry;
 				configuration.addAnnotatedClass(Evenement.class);
 				configuration.addAnnotatedClass(Comments.class);
 				configuration.addAnnotatedClass(Menu.class);
-				
+				configuration.addAnnotatedClass(Reservation.class);
+				configuration.addAnnotatedClass(Paiement.class);
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
 				System.out.println("Hibernate Java Config serviceRegistry created");

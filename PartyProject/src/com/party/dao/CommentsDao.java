@@ -79,7 +79,7 @@ public class CommentsDao {
 		transaction.commit();
 		session.close();			
 	}
-	//TO DO : i have to add graduation party and gender reveal party
+
 	@SuppressWarnings("unchecked")
 	public List<Comments> showThemeComments(String theme_Event) {
 		List<Comments> result = null;
@@ -89,20 +89,11 @@ public class CommentsDao {
 	    	//Session session = HibernateUtil.getSessionFactory().openSession();
 	    	// start a transactio
 	    	transaction = session.beginTransaction();
-	    	if(theme_Event.equals("Birthday")) {
+	    	
 	    		result = session
-	    		        .createQuery("FROM Comments C WHERE C.id_theme ='Birthday'")
+	    		        .createQuery("FROM Comments C WHERE C.id_theme ="+"'"+theme_Event+"'")
 	    		        .getResultList(); 
-	    	}else if(theme_Event.equals("Baby shower")) {
-	    		result = session
-	    		        .createQuery("FROM Comments C WHERE C.id_theme ='Baby shower'")
-	    		        .getResultList(); 
-	    	}
-	    	else if(theme_Event.equals("Wedding")) {
-	    		result = session
-	    		        .createQuery("FROM Comments C WHERE C.id_theme ='Wedding'")
-	    		        .getResultList(); 
-	    	}
+	    	
 	    	session.close();
 	    	return result;
 	    	
@@ -112,7 +103,7 @@ public class CommentsDao {
 	        throw new RuntimeException(e);
 	    }
 	}
-	//TO DO : i have to add graduation party and gender reveal party
+	
 	@SuppressWarnings("unchecked")
 	public List<Comments> showReviews(String theme_Event) {
 		List<Comments> result = null;
@@ -122,20 +113,11 @@ public class CommentsDao {
 	    	//Session session = HibernateUtil.getSessionFactory().openSession();
 	    	// start a transactio
 	    	transaction = session.beginTransaction();
-	    	if(theme_Event.equals("Birthday")) {
+	    	
 	    		result = session
-	    		        .createQuery("FROM Comments C WHERE C.id_theme ='Birthday' ORDER BY C.nbr_likes DESC")
+	    		        .createQuery("FROM Comments C WHERE C.id_theme ="+"'"+theme_Event+"'"+"ORDER BY C.nbr_likes DESC")
 	    		        .getResultList(); 
-	    	}else if(theme_Event.equals("Baby shower")) {
-	    		result = session
-	    		        .createQuery("FROM Comments C WHERE C.id_theme ='Baby shower' ORDER BY C.nbr_likes DESC")
-	    		        .getResultList(); 
-	    	}
-	    	else if(theme_Event.equals("Wedding")) {
-	    		result = session
-	    		        .createQuery("FROM Comments C WHERE C.id_theme ='Wedding'  ORDER BY C.nbr_likes DESC")
-	    		        .getResultList(); 
-	    	}
+	    	
 	    	session.close();
 	    	return result;
 	    	

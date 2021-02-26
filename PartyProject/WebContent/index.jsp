@@ -5,7 +5,7 @@
 <html lang="en">
 
 <%@ include file = "layout.jsp" %>
-<!-- %@ include file = "reservationForm.jsp" %> -->
+<%@ include file = "reservationForm.jsp" %> 
     <div class="hero-wrap js-fullheight" style="background-image: url('images/glass_crits.jpg'); width: fit-content;" data-stellar-background-ratio="0.2">
       <div class="overlay"></div>
       <div class="container">

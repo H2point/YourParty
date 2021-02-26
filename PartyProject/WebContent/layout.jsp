@@ -68,7 +68,7 @@
 			            	<a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp; Account</a>
 			            	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					          <a class="dropdown-item" href="AccountServlet">View Account</a>
-					          <a class="dropdown-item" href="YourReservations">View reservations</a>
+					          <a class="dropdown-item" href="MyReservations">View reservations</a>
 					        </div>
 						</li>
 						<li class="nav-item">
@@ -76,12 +76,12 @@
 			          	</li>
 					</ul>
 			        <% 
-			        	if (request.getAttribute("id")!=null) {
-			        		int id = (Integer)request.getAttribute("id");
-			        		session.setAttribute("id",id);
+			        	if (request.getAttribute("idUser")!=null) {
+			        		int id = (Integer)request.getAttribute("idUser");
+			        		session.setAttribute("idUser",id);
 			        	}
 			        %>
-			        <% if(null == session.getAttribute("id")){%>
+			        <% if(null == session.getAttribute("idUser")){%>
 			        	<a href="login.jsp" class='btn btn-dark' style="color:white">login</a>
 			        <% } else {%>
 			        <a href="logout.jsp" class='btn btn-dark' style="color:white">logout</a>

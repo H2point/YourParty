@@ -122,7 +122,7 @@ body {
         </div>
 	
     </form>
-	<div class="text-center">Don't have an account? <a href="signup.html">Sign up here</a>.</div>
+	<div class="text-center">Don't have an account? <a href="register">Sign up here</a>.</div>
 </div>
 </body>
 </html>

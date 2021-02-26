@@ -38,22 +38,32 @@ public class AccountServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(true);
-		int idUser = (int) session.getAttribute("idUser");
-		User currentUserProfile = userDao.getUserByID(idUser);
-		request.setAttribute("currentUserProfile", currentUserProfile);
-		this.getServletContext().getRequestDispatcher("/viewUserAccount.jsp").forward(request, response);
+		
+		if(session.getAttribute("idUser") == null) {
+			response.sendRedirect("login");
+		}
+		else {
+			int idUser = (int) session.getAttribute("idUser");
+			User currentUserProfile = userDao.getUserByID(idUser);
+			request.setAttribute("currentUserProfile", currentUserProfile);
+			this.getServletContext().getRequestDispatcher("/viewUserAccount.jsp").forward(request, response);
+		}
+		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		int idUser = (int) session.getAttribute("idUser");
 		
+		if(session.getAttribute("idUser")== null) {
+			response.sendRedirect("login");
+		}else {
+			int idUser = (int) session.getAttribute("idUser");
 			if(request.getParameter("updateProfilePicture") == null) {
-				System.out.println("Yes i'm working Girl");
+				System.out.println("couldn't update the profil picture !");
 				
 			}else {
-				System.out.println("Yes i'm  not working Girl");
+				System.out.println("profil picture updated !");
 				
 				Part filePart = request.getPart("profilepictureUpdate");
 				InputStream inputstream = null;
@@ -63,26 +73,28 @@ public class AccountServlet extends HttpServlet {
 					inputstream = filePart.getInputStream();
 					
 				}else {
-					System.out.println("Yes i'm  not working Girl 222");
+					System.out.println("inputstream is empty !");
 				}
 				
 				byte[] profilPicture = toByteArray(inputstream);
 				userDao.updateUserProfilePicture(idUser,profilPicture);
 			}
+			
 			if(request.getParameter("updateProfileUser")!=null) {
 				String first_name = request.getParameter("firstnameAccount");
 				String last_name = request.getParameter("lastnameAccount");
 				String email = request.getParameter("emailAccount");
-				String password = request.getParameter("passwordAccount");
-				
-				System.out.println(first_name+" "+last_name+" "+email+"hjkkj"+idUser);
-				
-				
-				userDao.updateUserInfos(idUser,first_name, last_name, email, password);
+				String new_password = request.getParameter("new_passwordViewAccount");
+				String confirm_password = request.getParameter("new_passwordViewAccount");
+				if(new_password.equals(confirm_password)) {
+					userDao.updateUserInfos(idUser,first_name, last_name, email, new_password);
+				}
+					
 			}
-			
+		}
 		
-		this.getServletContext().getRequestDispatcher("/viewUserAccount.jsp").forward(request, response);
+		doGet(request,response);
+		
 	}
 	public static byte[] toByteArray(InputStream in) throws IOException {
 		 
