@@ -16,25 +16,38 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.party.dao.AdminDao;
+import com.party.dao.CommentsDao;
 import com.party.dao.EvenementDao;
+import com.party.dao.MenuDao;
+import com.party.dao.ReservationDao;
+import com.party.models.Comments;
 import com.party.models.Evenement;
 import com.party.models.Event;
+import com.party.models.Menu;
 
 
 @WebServlet("/Event")
 @MultipartConfig
 public class EvenementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private ReservationDao reservationDao;
 	private EvenementDao evenementDao;
 	
 	Evenement evenement=new Evenement();
+	private CommentsDao commentsDao;
+	private MenuDao menuDao;
     
 	public void init() {
+		reservationDao = new ReservationDao();
 		evenementDao = new EvenementDao();
+		commentsDao = new CommentsDao();
+		menuDao = new MenuDao();
 	}
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<String> listDates = new ArrayList<String>();
+		listDates = reservationDao.getListDateReservations();
+		request.setAttribute( "listDates", listDates);
 		if(request.getParameter("afficherEvenement")!=null){
             List<Evenement> evenementList = new ArrayList();
             evenementList = evenementDao.AfficherEvenement();
@@ -45,15 +58,24 @@ public class EvenementServlet extends HttpServlet {
 		
 		
 		if(request.getParameter("afficherUnEventIndex")!=null){
+			// Here we get informations+ reviews and menu since they're related to the event
+			// that's why i didn't do it in comments and menu servlet 
 			
             try {
-            	
+            	 	
             String name = request.getParameter("nom");
-            
+            request.getSession().setAttribute("currentTheme",name);
             List<Evenement> evenementList = new ArrayList();
+            List<Comments> reviewsList = new ArrayList();
+            List<Menu> menuList = new ArrayList();
             evenementList = evenementDao.AfficherUnEventIndex(name);
+            reviewsList = commentsDao.showReviews(name);
+            menuList = menuDao.getMenuByTheme(name);
             request.setAttribute("evenementList", evenementList);
-            RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+            request.setAttribute("reviewsList", reviewsList);
+            request.setAttribute("menuList", menuList);
+            RequestDispatcher rd = request.getRequestDispatcher("EventDetails.jsp");
+            request.setAttribute("currentTheme",name); // set attribut n'est pas repete we should keep it!
             rd.forward(request, response);
             
             }catch(Exception e){
@@ -62,6 +84,7 @@ public class EvenementServlet extends HttpServlet {
         }
 	
 	}
+
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

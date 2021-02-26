@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/auth.css">
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -29,7 +30,7 @@
 <body>
 <%@ include file = "layout.jsp" %>
 <div class="signup-form">	
-    <form action="<%=request.getContextPath()%>/register" method="post">
+    <form action="<%=request.getContextPath()%>/register" method="post" enctype="multipart/form-data">
 		<h2>Create Account</h2>
 		<p class="lead">It's free and hardly takes more than 30 seconds.</p>
 		<div class="form-group">
@@ -65,6 +66,16 @@
 				<input  type="password"  class="form-control" name="password" placeholder="Password" required>
 			</div>
         </div>
+        <div class="form-group">
+		 	<div class="input-group">
+		 		<label class="file">
+		 				<span class="input-group-addon"><i class="fa fa-image"></i></span>
+					  <input type="file" id="file" aria-label="File browser example"  name="profilepicture">
+					  <span class="file-custom"></span>
+					</label>
+							 		
+		 	</div>
+		 </div> 
 		     
 		<div class="form-group">
             <button id="signup" type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
@@ -91,20 +102,17 @@ $(document).ready(function(){
 				{$('#result').removeClass('error')
 				    $('#result').addClass('success');
 					document.getElementById("signup").disabled = false;
-					 
-					
-				   
+   
 				}
 				else
 				{$('#result').removeClass('success')
 				    $('#result').addClass('error');
 					document.getElementById("signup").disabled = true;
-					
-					
+				
 				}
-				
-				
-				
+	
+			},error:function(result){
+				alert("error");
 			}
 		});
 		

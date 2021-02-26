@@ -18,7 +18,7 @@
 <body>
 <%@ include file = "layout.jsp" %>
 <div class="signup-form">	
-    <form action="<%=request.getContextPath()%>/login" method="post">
+    <form action="login" method="post">
 		<h2>LOG IN</h2>
        
         <div class="form-group">

@@ -56,9 +56,9 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="welcome" class="nav-link">Home</a></li>
+	        	<li class="nav-item active"><a href="home" class="nav-link">Home</a></li>
 	        	
-	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	        	<li class="nav-item"><a href="" class="nav-link">Services</a></li>
 	        	
 	         <li class="nav-item">
 			          		<a href="offers" class="nav-link"><i class="fa fa-bullhorn fa-lg" aria-hidden="true"></i>&nbsp; Sales</a>
@@ -66,7 +66,7 @@
 			            <li class="nav-item dropdown">
 			            	<a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp; Account</a>
 			            	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					          <a class="dropdown-item" href="#">View Account</a>
+					          <a class="dropdown-item" href="AccountServlet">View Account</a>
 					          <a class="dropdown-item" href="MyReservations">View reservations</a>
 					        </div>
 						</li>

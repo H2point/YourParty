@@ -33,7 +33,7 @@ public class welcome extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<String> listDates = new ArrayList<String>();
 		listDates = reservationDao.getListDateReservations();
-		System.out.println("hellooooooooooooooooooooooooooo");
+		//System.out.println("hellooooooooooooooooooooooooooo");
 		request.setAttribute( "listDates", listDates);
 		
 		List<Evenement> evenementList = new ArrayList();

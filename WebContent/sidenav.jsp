@@ -60,6 +60,21 @@
 				<button  value="viewFinishedReservations" name="viewFinishedReservations" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">View Finished Reservations</button>
 			</form>
 		    <hr>
+		    		    <hr>
+<form action="MenuAdmin" method="get">
+<button  value="afficherMenus" name="afficherMenus" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">List of Menus</button>
+  <hr/>
+ </form>
+  <form action="MenuAdmin" method="get">
+<button  name="addMenu" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Add a Menu Item</button>
+
+ </form>
+
+  <hr>
+<form action="CommentsAdmin" method="get">
+<button  value="afficherComments" name="afficherComments" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">List of Comments</button>
+  <hr/>
+ </form>
 		    <hr>
 
 

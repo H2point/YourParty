@@ -29,36 +29,33 @@
     </div>
 
    <br><br><br><br><br>
-   <section class="ftco-section ftco-services">
-	<div class="container">
-    <div class="row">
-    	 
-         <c:forEach items="${evenementList}" var="ev">
-          <input id="${ev.id_event}" value="${ev.id_event}" hidden>
-	    <input id="${ev.id_event}/nameEvent" value="${ev.nameEvent}" hidden>
-	    	<input id="${ev.id_event}/pricePer10" value="${ev.pricePer10}" hidden>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-            <div class="img" style="background-image: url(evenementImage?id=${ev.id_event});"></div>
-          
-              <br>
-              <div class="media-body py-4 px-3">
-                <h3 class="heading">${ev.nameEvent}</h3>
-              
-                <p>${ev.description}.</p>  
-		      	<form action="EvenementServlet" method="GET">      
-		     		<input name="nom" type="hidden" value="${ev.nameEvent}" >
-					<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
-				</form>
-				<br>
-        		<p><button  class="btn btn-primary" onclick="openReservationForm(${ev.id_event})">Reserve</button></p>
-        	 </div>
-       		 </div>    
-        </div>
-        </c:forEach>
-    </div>
-	</div>
-</section>
+   <section class="ftco-section ftco-services" id="services">
+    	<div class="container">
+    		<div class="row">
+	    		<c:forEach items="${evenementList}" var="ev">
+	    			<input id="${ev.id_event}/nameEvent" value="${ev.nameEvent}" hidden>
+	              	<input id="${ev.id_event}/pricePer10" value="${ev.pricePer10}" hidden>
+					<div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+					  <div class="d-block services-wrap text-center">
+					    <div class="img" style="background-image: url(evenementImage?id=${ev.id_event});"></div>
+					    <div class="media-body py-4 px-3">
+					      <h3 class="heading">${ev.nameEvent}</h3>
+					      <p>${ev.description}</p>
+					      <p><button class="btn btn-primary" onclick="openReservationForm(${ev.id_event})">Reserve</button></p>
+					       
+					       <form action="Event" method="GET">
+     						<input name="nom" type="hidden" value="${ev.nameEvent}">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+ 							</form>
+					   
+					    </div>
+					  </div>    
+					</div>
+				</c:forEach>	
+			</div>	
+    	</div>
+    </section>
   
    
 		

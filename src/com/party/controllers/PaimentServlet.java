@@ -28,7 +28,7 @@ import com.party.util.HibernateUtil;
 public class PaimentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private PaiementDao paiementDao;
+	static private PaiementDao paiementDao;
 	
 	
 	Evenement evenement=new Evenement();
@@ -111,5 +111,16 @@ public class PaimentServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}}
+	
+	static void addPayment(HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		int idUser = (Integer)session.getAttribute("id");	
+		String evenementName = AuthorizePaymentServlet.nameEvent;
+		double total = AuthorizePaymentServlet.prixReservation;		
+		
+		Paiement paiement = new Paiement(idUser, "Manal DERMICH", evenementName, total);
+		paiementDao = new PaiementDao();
+		paiementDao.savePaiement(paiement);
+	}
 
 }

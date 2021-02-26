@@ -35,7 +35,7 @@ public class UserDao {
 	public int validate(String username, String password) {
 
 		Transaction transaction = null;
-		User user = null;
+		User user = new User();
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
@@ -54,8 +54,9 @@ public class UserDao {
 				transaction.rollback();
 			}
 			e.printStackTrace();
+			
 		}
-		return -1;
+		return 0;
 	}
 	public User getUserByID(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -64,7 +65,18 @@ public class UserDao {
 		User user = (User) query.uniqueResult();
 		return user;
 	}
-	
-	
-
+	/*
+	 * public void updateAUser(int id,String first_name,String last_name,String
+	 * email,String password) { Session session =
+	 * HibernateUtil.getSessionFactory().openSession(); Transaction transaction =
+	 * session.beginTransaction(); User user = (User) session.load(User.class, id);
+	 * user.setId(id); user.setFirst_name(first_name); user.setLast_name(last_name);
+	 * user.setPassword(password); user.setUsername(user.getUsername());
+	 * user.setEmail(email);
+	 * 
+	 * //session.merge(user); session.update(user); //session.flush();
+	 * transaction.commit(); session.close(); }
+	 * 
+	 * 
+	 */
 }

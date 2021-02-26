@@ -9,15 +9,20 @@
 	       			<span aria-hidden="true">&times;</span>
 	       		</button>
 	   		</div>
-	   		<form action="offers" method="post" id="offre-form">
+	   		<form action="authorize_payment" method="post" id="offre-form-${e.id}">
+	   		
 	   			<% List<String> listDates = (List<String>)request.getAttribute("listDates"); %>
+	   			
 	   			<div class="modal-body">
-	   				<div class="row my-3 text-center" hidden>
+	   				<div class="row my-3 text-center" >
 	   					<div class="col-md-6">
-							<input id="offer-id-event" class="form-control form-control-sm" type="text" id="inputSmall" name="id-event" hidden>
+							<input id="offer-id-event" class="form-control form-control-sm" type="text" id="inputSmall" name="id-event" type="hidden">
 						</div>
 						<div class="col-md-6">
-							<input class="form-control form-control-sm" type="number" id="nbr-people-offer" name="nbr-people-offer" hidden>
+							<input class="form-control form-control-sm" type="number" id="nbr-people-offer" name="nbr-people-input" type="hidden">
+						</div>
+						<div class="col-md-6">
+							<input class="form-control form-control-sm" id="event-name" name="event-name" type="hidden">
 						</div>
 					</div>
 	   				<div class="row my-3 text-center">
