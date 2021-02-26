@@ -33,20 +33,20 @@ public class AdminDao {
 		}
 	}
 
-	public void modifierEvent(int id,int id_evenement, String theme,int nbr_personne,double price) {
+	/*public void modifierEvent(int id,int id_evenement, String theme,int nbr_personne,double price) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		Event ev = (Event) session.load(Event.class, id);
 		ev.setId(id);
 		//ev.setId_evenement(id_evenement);
-		ev.setTheme(theme);
+		//ev.setTheme(theme);
 		ev.setNbr_personne(nbr_personne);
 		ev.setPrice(price);
 		
 		session.update(ev);
 		transaction.commit();
 		session.close();			
-	}
+	}*/
 	
 	public void supprimerEvent(Event v) {
 		Session session = HibernateUtil.getSessionFactory().openSession();

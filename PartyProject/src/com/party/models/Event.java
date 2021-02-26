@@ -24,7 +24,7 @@ public class Event implements Serializable {
 	private int id;
 	
 	@Column(name = "theme")
-	private String theme;
+	private int theme;
 	
 	@Column(name = "price")
 	private double price;
@@ -32,11 +32,20 @@ public class Event implements Serializable {
 	@Column(name = "nbr_personne")
 	private int nbr_personne;
 	
-	
+	@Lob
+	@Column(name = "image")
+	private byte[] image;
 
+	public Event(int theme, double price, int nbr_personne, byte[] image) {
+		super();
+		
+		this.theme = theme;
+		this.price = price;
+		this.nbr_personne = nbr_personne;
+		this.image = image;
+	}
 	
-
-	public Event(String theme, double price, int nbr_personne) {
+	public Event(int theme, double price, int nbr_personne) {
 		super();
 		
 		this.theme = theme;
@@ -61,11 +70,11 @@ public class Event implements Serializable {
 	}
 
 
-	public String getTheme() {
+	public int getTheme() {
 		return theme;
 	}
 
-	public void setTheme(String theme) {
+	public void setTheme(int theme) {
 		this.theme = theme;
 	}
 
@@ -84,7 +93,15 @@ public class Event implements Serializable {
 	public void setNbr_personne(int nbr_personne) {
 		this.nbr_personne = nbr_personne;
 	}
+	
+	public byte[] getImage() {
+		return image;
+	}
+
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 
 	
 }
-

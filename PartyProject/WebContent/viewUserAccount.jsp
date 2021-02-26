@@ -164,7 +164,7 @@ select:focus {
             <div class="col-md-6 pt-md-0 pt-3"> <label for="lastnameViewAccount">Last Name</label> <input type="text" name="lastnameAccount" class="bg-light form-control" value="${currentUserProfile.last_name}"> </div>
         </div>
         <div class="row py-2">
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="usernameViewAccount">Username</label> <input type="tel" name="usernameAccount" class="bg-light form-control" value="${currentUserProfile.username}"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="usernameViewAccount">Username</label> <input type="tel" name="usernameAccount" class="bg-light form-control" value="${currentUserProfile.username}" disabled> </div>
             <div class="col-md-6"> <label for="emailViewAccount">Email Address</label> <input type="text" name="emailAccount" class="bg-light form-control" value="${currentUserProfile.email}"> </div>
         </div>
        

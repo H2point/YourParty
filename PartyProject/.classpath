@@ -43,5 +43,6 @@
 	<classpathentry kind="lib" path="C:/Users/DIMA/j2ee/Party/WebContent/WEB-INF/lib/rest-api-sdk-1.14.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/DIMA/j2ee/Party/WebContent/WEB-INF/lib/slf4j-api-2.0.0-alpha1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/DIMA/j2ee/Party/WebContent/WEB-INF/lib/stax-ex-1.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DIMA/Desktop/commons-lang3-3.11.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

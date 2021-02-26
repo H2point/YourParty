@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -45,8 +46,24 @@ public class UserDao {
 		User user = (User) query.uniqueResult();
 		return user;
 	}
+	
+	public String resetCustomerPassword(String email) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		String qr = "FROM User U where U.email ="+"'"+email+"'";
+		Query query = session.createQuery(qr);
+		User user = (User) query.uniqueResult();
+	     
+	    String randomPassword = RandomStringUtils.randomAlphanumeric(10);
+	     
+	    user.setPassword(randomPassword);
+	    session.update(user);
+	    transaction.commit();
+		
+		session.close();
+	    return randomPassword;
+	}
 	public int validate(String username, String password) {
-
 		Transaction transaction = null;
 		User user = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {

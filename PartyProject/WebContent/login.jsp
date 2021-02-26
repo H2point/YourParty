@@ -123,6 +123,7 @@ body {
 	
     </form>
 	<div class="text-center">Don't have an account? <a href="register">Sign up here</a>.</div>
+	<div class="text-center">Forgot your password?<a href="reset_password">Reset your password here</a></div>
 </div>
 </body>
 </html>
