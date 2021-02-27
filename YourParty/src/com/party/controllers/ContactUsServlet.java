@@ -37,11 +37,7 @@ public class ContactUsServlet extends HttpServlet {
 		String email = (String) request.getParameter("contact-email-input");
 		String subject = (String) request.getParameter("contact-subject-input");
 		String message = (String) request.getParameter("contact-message-input");
-		Mailer.send("mdermich@gmail.com", first_name + " " + last_name + " : " + subject, message + "\n" + email);
-			
-		/*response.setContentType("text/plain");
-	    response.setCharacterEncoding("UTF-8");
-	    response.getWriter().write("Message Sent!");*/			
+		Mailer.send("mdermich@gmail.com", first_name + " " + last_name + " : " + subject, message + "\n" + email);		
 		
 	}
 

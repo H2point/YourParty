@@ -12,11 +12,6 @@ import com.party.util.HibernateUtil;
 
 public class UserDao {
 
-	/**
-	 * Save User
-	 * @param user
-	 * @return 
-	 */
 	public void saveUser(User user) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -66,7 +61,7 @@ public class UserDao {
 		return user;
 	}
 	
-	public void updateAUser(int id,String first_name,String last_name,String email,String password) {
+	public void updateUserInfos(int id,String first_name,String last_name,String email,String password) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		User user = (User) session.load(User.class, id);
@@ -74,23 +69,23 @@ public class UserDao {
 		user.setFirst_name(first_name);
 		user.setLast_name(last_name);
 		user.setPassword(password);
-		user.setUsername(user.getUsername());
 		user.setEmail(email);
 	
-		//session.merge(user);
 		session.update(user);
-		//session.flush();
+		transaction.commit();
+		
+		session.close();			
+	}
+	
+	public void updateUserProfilePicture(int id,byte[] user_image) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		User user = (User) session.load(User.class, id);
+		user.setId(id);
+		user.setUser_image(user_image);
+		session.update(user);
 		transaction.commit();
 		session.close();			
 	}
-	/*public List<User> AfficherProfilePicture(String username){		
-		List<User> profilepictureList = new ArrayList();
-		Session session = HibernateUtil.getSessionFactory().openSession();		
-		String qr = "FROM User where username="+"'"+username+"'"; //Entity name
-		Query query = session.createQuery(qr);
-		profilepictureList = query.list();
-		return profilepictureList;
-		
-	}*/
 
 }

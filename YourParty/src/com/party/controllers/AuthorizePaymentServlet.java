@@ -45,7 +45,7 @@ public class AuthorizePaymentServlet extends HttpServlet {
 	        System.out.println(product);
 	        String subtotal = request.getParameter("price-reservation-input");
 	        String shipping = "0";
-	        String tax = "0";
+	        String tax = "0"; 
 	        String total = request.getParameter("price-reservation-input");
 	         
 	        OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);

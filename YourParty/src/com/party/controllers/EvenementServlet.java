@@ -2,7 +2,6 @@ package com.party.controllers;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import com.party.dao.AdminDao;
+import com.party.dao.CommentsDao;
 import com.party.dao.EvenementDao;
+import com.party.dao.MenuDao;
+import com.party.models.Comments;
 import com.party.models.Evenement;
-import com.party.models.Event;
+import com.party.models.Menu;
 
 
 @WebServlet("/EvenementServlet")
@@ -27,11 +28,15 @@ public class EvenementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private EvenementDao evenementDao;
+	private CommentsDao commentsDao;
+	private MenuDao menuDao;
 	
-	Evenement evenement=new Evenement();
+	Evenement evenement = new Evenement();
     
 	public void init() {
 		evenementDao = new EvenementDao();
+		commentsDao = new CommentsDao();
+		menuDao = new MenuDao();
 	}
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,16 +60,25 @@ public class EvenementServlet extends HttpServlet {
         }
 		
 		if(request.getParameter("afficherUnEventIndex")!=null){
-			
+			// Here we get informations+ reviews and menu since they're related to the event
+			// that's why i didn't do it in comments and menu servlet 
+						
             try {
-            	
-            String name = request.getParameter("nom");
-            
-            List<Evenement> evenementList = new ArrayList();
-            evenementList = evenementDao.AfficherUnEventIndex(name);
-            request.setAttribute("evenementList", evenementList);
-            RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
-            rd.forward(request, response);
+            	 	
+	            String name = request.getParameter("nom");
+	            request.getSession().setAttribute("currentTheme",name);
+	            List<Evenement> evenementList = new ArrayList();
+	            List<Comments> reviewsList = new ArrayList();
+	            List<Menu> menuList = new ArrayList();
+	            evenementList = evenementDao.AfficherUnEventIndex(name);
+	            reviewsList = commentsDao.showReviews(name);
+	            menuList = menuDao.getMenuByTheme(name);
+	            request.setAttribute("evenementList", evenementList);
+	            request.setAttribute("reviewsList", reviewsList);
+	            request.setAttribute("menuList", menuList);
+	            RequestDispatcher rd = request.getRequestDispatcher("EventDetails.jsp");
+	            request.setAttribute("currentTheme",name); // set attribut n'est pas repete we should keep it!
+	            rd.forward(request, response);
             
             }catch(Exception e){
             	System.out.println(e);

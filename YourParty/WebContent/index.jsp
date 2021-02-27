@@ -35,7 +35,11 @@
 					      <h3 class="heading">${ev.nameEvent}</h3>
 					      <p>${ev.description}</p>
 					      <p><button class="btn btn-primary" onclick="openReservationForm(${ev.id_event})">Reserve</button></p>
-					      <p><a href="#" class="btn btn-primary">Read more</a></p> <!-- To be changed !!! -->
+					      <form action="EvenementServlet" method="GET">
+							<input name="nom" type="hidden" value="${ev.nameEvent}">
+							<button name="afficherUnEventIndex" type="submit"  class="btn btn-primary" style="background:#4f262f;;color:white;">Read More</button>
+  							<hr>
+						  </form>
 					    </div>
 					  </div>    
 					</div>
