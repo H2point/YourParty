@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.party.models.Evenement;
-import com.party.models.Event;
 import com.party.util.HibernateUtil;
 
 public class EvenementDao {
@@ -75,6 +74,4 @@ public class EvenementDao {
 		nameEvenement = evenement.getNameEvent();
 		return nameEvenement;
 	}
-	
-
 }

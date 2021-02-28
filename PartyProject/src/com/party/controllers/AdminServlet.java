@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -17,11 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import org.hibernate.Session;
-
 import com.party.dao.AdminDao;
+import com.party.dao.EvenementDao;
+import com.party.models.Evenement;
 import com.party.models.Event;
-import com.party.models.Menu;
 import com.party.util.HibernateUtil;
 
 /**
@@ -31,41 +32,54 @@ import com.party.util.HibernateUtil;
 @MultipartConfig
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AdminDao adminDao; 
+	private AdminDao adminDao;
+	private EvenementDao evenementDao;
 	
-	Event event=new Event();
+	Evenement evenement=new Evenement();
+	
+	Event event = new Event();
 	
 	public void init() {
 		adminDao = new AdminDao();
+		evenementDao = new EvenementDao();
 	}
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(request.getParameter("afficherEvent")!=null){
-            List<Event> eventList = new ArrayList();
+			List<Event> eventList = new ArrayList<Event>();
             eventList = adminDao.AfficherEvent();
             request.setAttribute("eventList", eventList);
-            request.setAttribute("offre","hi");
-            
+            List<String> evenementNames = new ArrayList<String>();
+            for(Event offre : eventList) {
+            	String name = evenementDao.getNameEvenementByID(offre.getTheme());
+            	evenementNames.add(name);
+            }
+            request.setAttribute("evenementNames", evenementNames);
             RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
             rd.forward(request, response);
-        }  
-		
-		
-	
+        }
+		if(request.getParameter("ajouterEvent")!=null){   
+			List<Evenement> evenementList = new ArrayList();
+            evenementList = evenementDao.AfficherEvenement();
+            request.setAttribute("evenementList", evenementList);
+            RequestDispatcher rd = request.getRequestDispatcher("addOffre.jsp");
+            rd.forward(request, response);
+        }
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		if(request.getParameter("addEvent")!=null){
-            try {
-            	Event newEvent;
+			try {
+				System.out.println("hey");
+            	Event newEvent = new Event();
             	int idevent= Integer.parseInt(request.getParameter("idevent"));
-            	Session sess = HibernateUtil.getSessionFactory().openSession();
-            	String theme =  (String)sess.createQuery("SELECT nameEvent FROM Evenement e WHERE e.id_event= :id").setInteger("id",idevent).uniqueResult();
-        		Double price= Double.parseDouble(request.getParameter("price"));
+            	//Session sess = HibernateUtil.getSessionFactory().openSession();
+            	//String theme =  (String)sess.createQuery("SELECT nameEvent FROM Evenement e WHERE e.id_event= :id").setInteger("id",idevent).uniqueResult();
+        		double price= Double.parseDouble(request.getParameter("price"));
         		int nbr_personne= Integer.parseInt(request.getParameter("nbr_personne"));
         		
         		Part part=request.getPart("image");
@@ -75,14 +89,20 @@ public class AdminServlet extends HttpServlet {
         		byte[] data= new byte[is.available()];
         		is.read(data);
         		//newEvent.setImage(data);
-        		//newEvent = new Event(idevent,theme,price,nbr_personne,data);
-        		//adminDao.saveEvent(newEvent);
-        		 List<Event> eventList = new ArrayList();
-                 eventList = adminDao.AfficherEvent();
-                 request.setAttribute("eventList", eventList);
-        		RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
-        		dispatcher.forward(request, response);
-				//insertEvent(request,response);
+        		newEvent = new Event(idevent, price, nbr_personne, data);
+        		System.out.println(idevent+price+nbr_personne);
+        		adminDao.saveEvent(newEvent);
+				List<Event> eventList = new ArrayList();
+				eventList = adminDao.AfficherEvent();
+				request.setAttribute("eventList", eventList);
+				List<String> evenementNames = new ArrayList<String>();
+	            for(Event offre : eventList) {
+	            	String name = evenementDao.getNameEvenementByID(offre.getTheme());
+	            	evenementNames.add(name);
+	            }
+	            request.setAttribute("evenementNames", evenementNames);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("displayEventAdmin.jsp");
+				dispatcher.forward(request, response);
 			} 
 			catch (IOException e) {
 				e.printStackTrace();
@@ -90,7 +110,14 @@ public class AdminServlet extends HttpServlet {
 				e.printStackTrace();
 			}
         }
-		
+
+		if(request.getParameter("afficherEvent")!=null){
+            List<Event> eventList = new ArrayList();
+            eventList = adminDao.AfficherEvent();
+            request.setAttribute("eventList", eventList);
+            RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
+            rd.forward(request, response);
+        }
 		if(request.getParameter("afficherEventUser")!=null){
             List<Event> eventList = new ArrayList();
             eventList = adminDao.AfficherEventUser();
@@ -107,18 +134,22 @@ public class AdminServlet extends HttpServlet {
             rd.forward(request, response);
         }
 		 if(request.getParameter("modifierEvent")!=null){
-             int id = Integer.parseInt(request.getParameter("id"));
-             int idevent= Integer.parseInt(request.getParameter("id_evenement"));
-             String theme = request.getParameter("theme");
-     		Double price= Double.parseDouble(request.getParameter("price"));
-     		int nbr_personne= Integer.parseInt(request.getParameter("nbr_personne"));
-     		
-             //adminDao.modifierEvent(id,idevent,theme, nbr_personne,price);   
+			 int id = Integer.parseInt(request.getParameter("id"));
+             int theme = Integer.parseInt(request.getParameter("theme"));
+             Double price= Double.parseDouble(request.getParameter("price"));
+     		 int nbr_personne= Integer.parseInt(request.getParameter("nbr_personne"));
+             adminDao.modifierEvent(id,theme, nbr_personne,price);                 
              List<Event> eventList = new ArrayList();
              eventList = adminDao.AfficherEvent();
              request.setAttribute("eventList", eventList);
+             List<String> evenementNames = new ArrayList<String>();
+             for(Event offre : eventList) {
+             	String name = evenementDao.getNameEvenementByID(offre.getTheme());
+             	evenementNames.add(name);
+             }
+             request.setAttribute("evenementNames", evenementNames);
              RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
-             rd.forward(request, response);                    
+             rd.forward(request, response);                           
          }
           
          if(request.getParameter("supprimerEvent")!=null){
@@ -128,10 +159,15 @@ public class AdminServlet extends HttpServlet {
             List<Event> eventList = new ArrayList();
             eventList = adminDao.AfficherEvent();
             request.setAttribute("eventList", eventList);
+            List<String> evenementNames = new ArrayList<String>();
+            for(Event offre : eventList) {
+            	String name = evenementDao.getNameEvenementByID(offre.getTheme());
+            	evenementNames.add(name);
+            }
+            request.setAttribute("evenementNames", evenementNames);
             RequestDispatcher rd = request.getRequestDispatcher("displayEventAdmin.jsp");
             rd.forward(request, response);
          } 
-		
 	}
-	
+
 }

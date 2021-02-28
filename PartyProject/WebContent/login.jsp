@@ -12,6 +12,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 <style>
 body {
 	color: #999;
@@ -100,8 +102,9 @@ body {
 </style>
 </head>
 <body>
+<%@ include file = "layout.jsp" %>
 <div class="signup-form">	
-    <form action="<%=request.getContextPath()%>/login" method="post">
+    <form action="login" method="post">
 		<h2>LOG IN</h2>
        
         <div class="form-group">
@@ -113,7 +116,8 @@ body {
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input type="text" class="form-control" name="password" placeholder="Password" required="required">
+				<input type="password" class="form-control" name="password" placeholder="Password" id="password" required="required">
+				<i class="far fa-eye" id="togglePassword"></i>
 			</div>
         </div>
 		    
@@ -126,4 +130,15 @@ body {
 	<div class="text-center">Forgot your password?<a href="reset_password">Reset your password here</a></div>
 </div>
 </body>
+<script>
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+</script>
 </html>

@@ -11,7 +11,6 @@ import org.hibernate.Query;
 
 import com.party.models.Evenement;
 import com.party.models.Event;
-
 import com.party.util.HibernateUtil;
 
 public class AdminDao {
@@ -32,21 +31,17 @@ public class AdminDao {
 			e.printStackTrace();
 		}
 	}
-
-	/*public void modifierEvent(int id,int id_evenement, String theme,int nbr_personne,double price) {
+	public void modifierEvent(int id, int theme,int nbr_personne,double price) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		Event ev = (Event) session.load(Event.class, id);
-		ev.setId(id);
-		//ev.setId_evenement(id_evenement);
-		//ev.setTheme(theme);
+		ev.setTheme(theme);
 		ev.setNbr_personne(nbr_personne);
 		ev.setPrice(price);
-		
 		session.update(ev);
 		transaction.commit();
 		session.close();			
-	}*/
+	}
 	
 	public void supprimerEvent(Event v) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -65,6 +60,7 @@ public class AdminDao {
 		eventList = query.list();
 		return eventList;
 	}
+	
 	public List<Event> AfficherEventUser(){		
 		List<Event> eventList = new ArrayList();
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -73,6 +69,7 @@ public class AdminDao {
 		eventList = query.list();
 		return eventList;
 	}
+	
 	public List<Event> AfficherUnEvent(int id){		
 		List<Event> eventList = new ArrayList();
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -81,6 +78,7 @@ public class AdminDao {
 		eventList = query.list();
 		return eventList;
 	}
+	
 	public List<Evenement> AfficherUnEventIndex(String name){		
 		List<Evenement> evenementList = new ArrayList();
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -90,7 +88,6 @@ public class AdminDao {
 		return evenementList;
 		
 	}
-	
 
 
 }

@@ -16,13 +16,30 @@
 <%@ include file = "sidenav.jsp" %>
 
 <div class="main ">
- <c:forEach items="${eventList}" var="e">
-<form action="AdminServlet" method="POST">
+ <c:forEach items="${eventList}" var="e" >
+<form action="Offre" method="POST">
 <input type="text" class="form-control" id="theme" value="${e.id}" name="id" hidden="true">
-    <div class="form-group">
+<input type="text" class="form-control" id="theme" value="${e.theme}" name="theme" hidden="true">
+ <%-- <div class="form-group">
+    <label for="exampleFormControlSelect1">Theme</label>
+    
+    <select class="form-control" id="exampleFormControlSelect1" name="theme" value="${e.theme}">
+  
+      <option>Birthday</option>
+      <option>Baby Shower</option>
+      <option>Gender Reveal Party</option>
+      <option>Wedding Party</option>
+      <option>Graduation Party</option>
+    </select>
+    
+  </div> --%>
+    <%-- <div class="form-group">
       <label for="email">Theme:</label>
       <input type="text" class="form-control" id="theme" value="${e.theme}" name="theme" >
-    </div>
+    </div> --%>
+     <div class="form-group">
+     <img src="dataImage?id=${e.id}" height="200px" class="img" alt="">
+     </div>
     <div class="form-group">
       <label >Nombre de personnes:</label>
       <input type="text" class="form-control" value="${e.nbr_personne}" name="nbr_personne" >
@@ -31,7 +48,7 @@
       <label >Price:</label>
       <input type="text" class="form-control" id="price" value="${e.price} " name="price" >
     </div>
-    
+     
  
   <br>
     <div class="form-group">

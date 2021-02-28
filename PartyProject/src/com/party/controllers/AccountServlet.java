@@ -85,7 +85,7 @@ public class AccountServlet extends HttpServlet {
 				String last_name = request.getParameter("lastnameAccount");
 				String email = request.getParameter("emailAccount");
 				String new_password = request.getParameter("new_passwordViewAccount");
-				String confirm_password = request.getParameter("new_passwordViewAccount");
+				String confirm_password = request.getParameter("confirm_new_passwordViewAccount");
 				if(new_password.equals(confirm_password)) {
 					userDao.updateUserInfos(idUser,first_name, last_name, email, new_password);
 				}

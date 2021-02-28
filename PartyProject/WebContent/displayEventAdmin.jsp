@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import ="java.util.List"%>
 <!DOCTYPE html>
 <html>
 
@@ -20,21 +21,25 @@
     <thead>
       <tr>
         <th>Theme</th>
-        <th>Nombre de personne</th>
-        <th>Prix</th>
-        <th>image</th>
-        <th>Modifier</th>
+        <th>Number of People</th>
+        <th>Price Per 10</th>
+        <th>Tmage</th>
+        <th>Modify</th>
         <th>Delete</th>
       </tr>
     </thead>
    
     <tbody>
+    <% List<String> listNames = (List<String>)request.getAttribute("evenementNames");
+    		int i = 0;
+    %>
     <c:forEach items="${eventList}" var="e">
       <tr>
     
-        <td>${e.theme}</td>
+        <td><%=listNames.get(i) %></td>
+        <% i++; %>
         <td>${e.nbr_personne}</td>
-        <td>${e.price} </td>
+        <td>${e.price} DH</td>
         <td><img src="dataImage?id=${e.id}" width="60px" height="60px"/> </td>
         
         <td>

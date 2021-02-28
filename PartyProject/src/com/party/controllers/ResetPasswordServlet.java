@@ -64,8 +64,8 @@ public class ResetPasswordServlet extends HttpServlet {
             String content = "Hi, this is your new password: " + newPassword;
             content += "\nNote: for security reason, "
                     + "you must change your password after logging in.";
-     
-            String message = "";
+            
+            String message = "ffff";
      
             try {
                 Mailer.send(email,subject, content);

@@ -1,54 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import ="java.util.ArrayList"%>
+<%@ page import ="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
-  <%@ include file = "layout.jsp" %>
-    <br><br>
-	<section class="container"><h1 style="color:#4f262f">Profitez de nos offres exceptionnelles à ne pas rater!!!!!!</h1></section>
- <br><br> <br><br>
-    <section class="ftco-section ftco-services container">
-    	<div class="container">
-    	<div class="row">
-    	<% List<String> listNames = (List<String>)request.getAttribute("evenementNames");
-    		int i = 0;
-    	%>
-    	<c:forEach items="${eventList}" var="e">
-   
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-            
-              
-              <img class="img" src="dataImage?id=${e.id}" />
-             
-              <div class="media-body py-4 px-3">
-              	<input id="${e.id}" value="${e.id}" hidden>
-              	<input id="${e.id}/nbr_personne" value="${e.nbr_personne}" hidden>
-              	<input id="${e.id}/price" value="${e.price}" hidden>
-              	<input id="${e.id}/theme" value="${e.theme}" hidden>
-              	<input id="${e.id}/theme_name" value="<%=listNames.get(i) %>" hidden>
-                <h3 class="heading">Offre : <%=listNames.get(i) %></h3>
-                <% i++; %>
-                <h3 class="heading">Nombre de personnes :${e.nbr_personne}</h3>
-                <h3 class="heading">Prix offre : ${e.price} Dhs</h3>
-             
-                <p><button id="${e.id}" class="btn btn-primary" onclick="openOffreReservationForm(this.id)">Reserve</button></p>
-              </div>
-            </div>      
-          </div>
-         
-           <%@ include file = "offreReservationForm.jsp" %>  
-          
-         </c:forEach>    
-               
-        </div>
-    	</div>
-    </section>
-  
- 
-		
-
-
+	<%@ include file = "layout.jsp" %><br><br>
+	<section class="container text-center"><h1 style="color:#4f262f">Your Pending Reservations</h1></section>
+ 	<br><br> <br><br>
+   	<% List<String> listNames = (List<String>)request.getAttribute("pendingEvenementNames");
+   		int i = 0;
+   	%>
+    	
+   	<div class="container">
+   		<div class="row hidden-md-up">
+   			<c:forEach items="${pendingReservationsByUser}" var="r">
+   				<div class="col-md-3" style="margin-bottom:20px">
+   					<div class="card text-center" style="width: 18rem; height:20rem; border-color:#4f262f">
+			    		<div class="card-header" style="color:#4f262f">
+						    Reservation : #${r.idReservation}
+						</div>
+						<div class="card-body">
+						    <h5 class="card-title">Theme : <%=listNames.get(i) %></h5>
+						    <% i++; %>
+						    <h6 class="card-subtitle mb-2 text-muted">Price : ${r.prixReservation} Dhs</h6>
+						    <p class="card-text">Number Of People : ${r.nbrPersonnes}.</p>
+						    <p class="card-text">Date : ${r.dateReservation}</p>
+			 			</div>
+			 			<div class="card-footer">
+						    <a href="#" class="btn btn-danger">Cancel Reservation</a>
+					  	</div>
+				 	</div>
+				 </div>
+			 </c:forEach>
+		 </div>
+	</div>
+	<br><br>
+    	
+   	<%if(null != request.getAttribute("finishedReservationsByUser")){%>
+   		<section class="container text-center"><h1 style="color:#4f262f">Your Finished Reservations</h1></section>
+		<br><br> <br><br>
+	   	<% List<String> listNames2 = (List<String>)request.getAttribute("finishedEvenementNames");
+	   		int j = 0;
+	   	%>
+	   	<div class="container">
+	   		<div class="row hidden-md-up">
+	   			<c:forEach items="${finishedReservationsByUser}" var="r">
+	   				<div class="col-md-3" style="margin-bottom:20px">
+	   					<div class="card text-center" style="width: 18rem; height:15rem; border-color:#4f262f">
+				    		<div class="card-header" style="color:#4f262f">
+							    Reservation : #${r.idReservation}
+							</div>
+							<div class="card-body">
+							    <h5 class="card-title">Theme : <%=listNames2.get(j) %></h5>
+							    <% j++; %>
+							    <h6 class="card-subtitle mb-2 text-muted">Price : ${r.prixReservation} Dhs</h6>
+							    <p class="card-text">Number Of People : ${r.nbrPersonnes}.</p>
+							    <p class="card-text">Date : ${r.dateReservation}</p>
+				 			</div>
+					 	</div>
+					 </div>
+				 </c:forEach>
+			 </div>
+		 </div>
+	 <%} %>      
+    
     <footer class="footer">
 			<div class="container">
 				<div class="row">
@@ -139,9 +155,7 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
 
-	<script>
-	
-    </script>
+
     
   </body>
 </html>
