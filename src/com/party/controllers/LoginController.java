@@ -34,13 +34,13 @@ public class LoginController extends HttpServlet {
 		reservationDao = new ReservationDao();
 	}
 
-	/*
-	 * protected void doGet(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException {
-	 * 
-	 * this.getServletContext().getRequestDispatcher( "/login.jsp" ).forward(
-	 * request, response ); }
-	 */
+	
+	  protected void doGet(HttpServletRequest request, HttpServletResponse
+	  response) throws ServletException, IOException {
+	  
+	  this.getServletContext().getRequestDispatcher( "/login.jsp" ).forward(
+	 request, response ); }
+	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {

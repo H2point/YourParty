@@ -25,7 +25,7 @@
               %>
 <form action="Thank">  
 <input name="to" type="hidden" class="form-control" value="<%=email%>">
-<button type="submit" data-toggle="tooltip" title="" style="background:#e3c652;margin-left:45%;color:white;border: none;width:100px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Go back</button>         
+<button type="submit" data-toggle="tooltip" title="" style="background:#e3c652;margin-left:45%;color:white;border: none;width:100px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;" hidden>Clicker ici si vous souhaitez recevoir votre recu par mail</button>         
  
   </form>
   </div>

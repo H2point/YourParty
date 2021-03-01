@@ -35,7 +35,7 @@
         
          
          <td>
-         <form action="EvenementServlet" method="POST">
+         <form action="Event" method="POST">
          <div class="form-group">
              <input name="id_event" type="hidden" class="form-control" value="${ev.id_event}">
           </div>

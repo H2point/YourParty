@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 	<link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reservationForm.css">
@@ -58,24 +58,40 @@
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="home" class="nav-link">Home</a></li>
 	        	
-	        	<li class="nav-item"><a href="" class="nav-link">Services</a></li>
 	        	
 	         <li class="nav-item">
 			          		<a href="offers" class="nav-link"><i class="fa fa-bullhorn fa-lg" aria-hidden="true"></i>&nbsp; Sales</a>
 			          	</li>
 			            <li class="nav-item dropdown">
-			            	<a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp; Account</a>
+			            	
+			            	<%
+          if(null == session.getAttribute("id")){
+        	  
+              %>
+         <a  href="login" class="nav-link"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp; Account</a>     
+          
+          
+          <% }
+          else {
+        	  
+          %>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp; Account</a>
 			            	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					          <a class="dropdown-item" href="AccountServlet">View Account</a>
-					          <a class="dropdown-item" href="MyReservations">View reservations</a>
-					        </div>
+	       <a class="dropdown-item" href="AccountServlet">View Account</a>
+			<a class="dropdown-item" href="MyReservations">View reservations</a>
+	      
+           <%
+          }
+          %>
+					         
+					        
 						</li>
 						<li class="nav-item">
 			          		<a href="contactUs" class="nav-link"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i>&nbsp; Contact Us</a>
 			          	</li>
 	        </ul>
 	        
-	        
+	        </div>
 	        <% if (request.getAttribute("id")!=null) {
           int id = (Integer)request.getAttribute("id");
           session.setAttribute("id",id);}
