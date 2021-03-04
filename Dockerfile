@@ -11,3 +11,4 @@ RUN mkdir C:\Users\user\eclipse-workspace\Party
 
 VOLUME /PARTY
 
+EXPOSE 8080
