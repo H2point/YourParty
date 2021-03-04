@@ -50,8 +50,8 @@ public class PaymentServices {
      
     private RedirectUrls getRedirectURLs() {
     	RedirectUrls redirectUrls = new RedirectUrls();
-		redirectUrls.setCancelUrl("http://localhost:8080/PartyReservation/cancel.html");
-		redirectUrls.setReturnUrl("http://localhost:8080/PartyReservation/review_payment");
+		redirectUrls.setCancelUrl("http://localhost:8080/Party/cancel.html");
+		redirectUrls.setReturnUrl("http://localhost:8080/Party/review_payment");
 		 
 		return redirectUrls;
     }
