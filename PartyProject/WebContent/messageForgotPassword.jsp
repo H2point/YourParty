@@ -36,34 +36,12 @@
 
 <section  style="padding-left:27%;padding-top:5%">
 <div align="center" class="rev" style="width:60%;padding-top:10%;padding-bottom:5% ; border-style:solid;border-width: 5px 5px;">
-    <h1>Please Review Before Paying</h1>
-    <hr class="new1">
-    <form action="execute_payment" method="post">
-    <table>
-        <tr>
-            <td colspan="2"><b>Transaction Details:</b></td>
-            <td> 
-                <input type="hidden" name="paymentId" value="${param.paymentId}" />
-                <input type="hidden" name="PayerID" value="${param.PayerID}" />
-            </td>
-        </tr>
-        <tr>
-            <td>Description:</td>
-            <td>${transaction.description}</td>
-        </tr>
-        <tr>
-            <td>Total:</td>
-            <td>${transaction.amount.total} MAD</td>
-        </tr>
-        <tr><td><br/></td></tr>
-
-        <tr>
-            <td colspan="2" align="center">
-                <input type="submit" class="btn btn-primary" value="Pay Now" />
-            </td>
-        </tr>    
-    </table>
-    </form>
+    <br/>
+    <h3>${message}</h3>
+    <br/>
+    <form id="resetForm2" action="reset_password" method="post" >
+	            		<button class="btn btn-danger" name="backLoginReset" type="submit">Back to Login</button>
+	 </form>
 </div>
 </section>
 </body>

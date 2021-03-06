@@ -17,6 +17,7 @@ import org.hibernate.Session;
 
 import com.party.dao.AdminDao;
 import com.party.dao.MenuDao;
+import com.party.models.Evenement;
 import com.party.models.Event;
 import com.party.models.Menu;
 import com.party.util.HibernateUtil;
@@ -42,12 +43,14 @@ public class MenuAdmin extends HttpServlet {
             List<Menu> menuList = new ArrayList();
             menuList = menuDao.showMenu();
             request.setAttribute("menuList", menuList);
-            //request.setAttribute("offre","hi");
             
             RequestDispatcher rd = request.getRequestDispatcher("displayMenuAdmin.jsp");
             rd.forward(request, response);
         }
 		if(request.getParameter("addMenu")!=null){
+			 List<Evenement> evenementList = new ArrayList();
+	          evenementList = menuDao.AfficherEvenement();
+	          request.setAttribute("evenementList", evenementList);
           
             RequestDispatcher rd = request.getRequestDispatcher("addMenuAdmin.jsp");
             rd.forward(request, response);

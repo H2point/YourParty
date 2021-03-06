@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +25,13 @@
     
      <div class="form-group">
 		  <label for="menuTheme">Theme :</label>
-		  <select class="form-control" id="menuTheme" name="dropdownMenu">
-		    <option>Birthday</option>
-		    <option>Baby shower</option>
-		    <option>Wedding</option>
-		  </select>
+		  <select class="form-control" id="exampleFormControlSelect1" name="dropdownMenu">
+    
+    <c:forEach items="${evenementList}" var="ev">
+    <option  value="${ev.nameEvent}">${ev.nameEvent}</option>
+       </c:forEach>
+  
+    </select>
 	</div> 
     <div class="form-group">
       <label >Name of the Menu Item :</label>

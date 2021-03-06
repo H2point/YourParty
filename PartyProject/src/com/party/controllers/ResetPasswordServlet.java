@@ -18,21 +18,12 @@ import com.party.models.Mailer;
 public class ResetPasswordServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    private String host;
-    private String port;
-    private String email;
-    private String name;
-    private String pass;
+  
     private UserDao userDao;
 
     public void init() {
         // reads SMTP server setting from web.xml file
         ServletContext context = getServletContext();
-        /*host = context.getInitParameter("host");
-        port = context.getInitParameter("port");*/
-        //email = context.getInitParameter("email");
-        /*name = context.getInitParameter("name");
-        pass = context.getInitParameter("pass");*/
         userDao = new UserDao();
     }
  
@@ -65,21 +56,20 @@ public class ResetPasswordServlet extends HttpServlet {
             content += "\nNote: for security reason, "
                     + "you must change your password after logging in.";
             
-            String message = "ffff";
+            String message = " ";
      
             try {
                 Mailer.send(email,subject, content);
                 message = "Your password has been reset. Please check your e-mail.";
-                session.setAttribute("message", message);
+               
             } catch (Exception ex) {
                 ex.printStackTrace();
                 message = "There were an error: " + ex.getMessage();
-                session.setAttribute("message", message);
+               
             } finally {
             	
-                session.setAttribute("message", message);
-                
-            	doGet(request,response);
+            	request.setAttribute("message", message);
+                request.getRequestDispatcher("messageForgotPassword.jsp").forward(request, response);
             }
     		
     	}

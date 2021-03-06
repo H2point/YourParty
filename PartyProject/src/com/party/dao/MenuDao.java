@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.party.models.Evenement;
 import com.party.models.Event;
 import com.party.models.Menu;
 import com.party.util.HibernateUtil;
@@ -81,6 +82,15 @@ public class MenuDao {
 			e.printStackTrace();
 		}
 	}
-	
+	//to make list of event dynamic
+		public List<Evenement> AfficherEvenement(){		
+			List<Evenement> evenementList = new ArrayList();
+			Session session = HibernateUtil.getSessionFactory().openSession();		
+			String qr = "FROM Evenement"; //Entity name
+			Query query = session.createQuery(qr);
+			evenementList = query.list();
+			return evenementList;
+			
+		}
 	 
 }

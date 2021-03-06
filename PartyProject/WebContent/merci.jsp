@@ -25,10 +25,7 @@
 <% String email=(String)session.getAttribute("email");
               %>
 <form action="Thank">  
-<input name="to" type="hidden" class="form-control" value="<%=email%>">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<button type="submit" data-toggle="tooltip" title="" class="btn btn-primary" style="background:#fd7792;border-color:#fd7792;color:white;">Go back</button>         
+<input name="to" type="hidden" class="form-control" value="<%=email%>">       
  
   </form>
   </div>

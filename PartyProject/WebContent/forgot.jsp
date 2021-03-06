@@ -87,20 +87,7 @@ h2{
 	        </div>
 	    </div>
 	</div>
-<script type="text/javascript">
-		$(document).on("submit", "#resetForm", function(event) {
-		    var $form = $(this);
-			 $.post($form.attr("post"), $form.serialize(), function(response) { 
-		    	;
-		    });
-		    alert('<%=session.getAttribute("message")%>');
-	        var elt = document.getElementsByName("email")
-	        elt[0].value = "";
-		    
-		    event.preventDefault(); // Important! Prevents submitting the form.
-		});
-	
-</script>
+
 
 	
 </body>
